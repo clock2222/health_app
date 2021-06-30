@@ -1,24 +1,82 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# タイトル
 
-Things you may want to cover:
+不健康レシピ
 
-* Ruby version
+# リンク
 
-* System dependencies
+https://git.heroku.com/gentle-dawn-40553.git
 
-* Configuration
+# 概要説明
 
-* Database creation
+簡単な説明
+不健康を予測して確認するアプリです。
 
-* Database initialization
+画像による説明
 
-* How to run the test suite
+ER 図
 
-* Services (job queues, cache servers, search engines, etc.)
+AWS 構成図
 
-* Deployment instructions
+# 開発理由
 
-* ...
+新卒から介護の業界に勤めて 11 年。社員/利用者問わず健康管理に注意を払って自分自身にも当てはめてきた事から、若い時ほど健康管理を疎かにして、か つ時間を無駄にしていた事に気がついた。
+
+仕事をするにも勉強するにも体が資本。
+資本を守るためのアプリ、それが不健康アプリである。
+
+健康系のアプリを作るにあたり、ユーザー目線に立った時に健康意識の高い人 はそもそも誰かに教わらなくても健康意識は高いので必然的に健康アプリには 頼らないのではないかと思った。
+
+そこで不健康に着目し、健康のバロメーターを測る事で気がついていない不健 康をピックアップするサービスがあると面白いと感じた。
+
+不健康に着目した理由としては
+① 若い時ほど健康意識は低くなる傾向にあるが「太りやすい」だとか「体に害 がある」だとかは老若男女問わず注目されやすい事柄である。
+② インフルエンサーや SNS、ブログなど、情報量の多い時代何を信用すべきか、何が正しいかはとても重要な要素だと感じるため、現在の状況を正しく理解して、世の中の情報に紐づける仲介役があると、もっと便利になると考えた。
+③ 何よりも、リピートされるよりも一度使ってみようと思わせるキャッチーなサービスが身の丈にあった最初のアプリだと感じた。
+
+# ストーリー
+
+# 使用技術
+
+言語 HTML/CSS/Javascript/Ruby
+フレームワーク Ruby on Rails/Bootstrap
+DB postgresql
+テストフレームワーク RSpec
+デプロイ heroku
+CircleCI
+AWS/本番環境（EC2, RDS, VPC, EIP, Route53, IAM, S3）
+Docker,Docker-compose（開発環境）
+
+# 機能一覧
+
+ログイン機能
+ゲストログイン機能
+管理者画面機能
+投稿機能
+画像投稿機能
+検索機能
+データグラフ
+お問い合わせフォーム
+テストコード（RSpec）
+
+# 開発環境
+
+OS macosX
+IDE vscode
+terminal iterm2
+
+# インストール方法
+
+# 活動記録
+
+https://qiita.com/List202
+
+# メモ
+
+CRUD 処理
+MVC
+ログイン機能
+テーブルの制約、モデルのバリデーション
+データベースの正規化
+テーブル間の関連づけ
