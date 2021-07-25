@@ -11,7 +11,12 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      contact: お問い合わせ
     attributes:
       user:
         name: 名前
         age: 年齢
+      contact:
+        name: 氏名
+        email: メールアドレス
+        content: 内容

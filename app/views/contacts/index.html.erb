@@ -1,0 +1,13 @@
+<h1>お問い合わせ<%= " 《確認》" if @contact.submitted == "1" %></h1>
+<%= form_with model: @contact, local: true do |form| %>
+  <%= render "error_messages", form: form %>
+  <%= form.hidden_field :submitted %>
+  <% if @contact.submitted == "1" %>
+    <%= render "confirm_fields", form: form %>
+    <%= form.button "戻る", name: "contact[confirmed]", value: "" %>
+    <%= form.button "送信", name: "contact[confirmed]", value: "1" %>
+  <% else %>
+    <%= render "submit_fields", form: form %>
+    <%= form.submit "確認" %>
+  <% end %>
+<% end %>

@@ -1,0 +1,12 @@
+<div>
+  <%= form.label :name %> (任意)
+  <%= form.text_field :name %>
+</div>
+<div>
+  <%= form.label :email %> (必須)
+  <%= form.email_field :email, required: true, pattern: "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]+$" %>
+</div>
+<div>
+  <%= form.label :content %> (必須)
+  <%= form.text_area :content, required: true %>
+</div>

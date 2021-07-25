@@ -62,6 +62,7 @@ end
 gem "activeadmin"
 gem "devise"
 gem "devise-i18n"
+gem "letter_opener_web", "~> 1.0"
 gem "rails_best_practices"
 gem "rails-i18n", "~> 6.0.0"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
