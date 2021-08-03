@@ -12,6 +12,7 @@ ja:
     models:
       user: ユーザー
       contact: お問い合わせ
+      post: メッセージ
     attributes:
       user:
         name: 名前
@@ -19,4 +20,7 @@ ja:
       contact:
         name: 氏名
         email: メールアドレス
+        content: 内容
+      post:
+        title: タイトル
         content: 内容

@@ -12,8 +12,13 @@
     <header>
       <%= render "layouts/header" %>
     </header>
-    <%= render "layouts/flash" %>
-    <hr>
-    <%= yield %>
+    <main>
+      <%= render "layouts/flash" %>
+      <hr>
+      <div class="base-container">
+        <%= link_to "投稿一覧", posts_path %> <%= link_to "新規投稿", new_post_path %>
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>
