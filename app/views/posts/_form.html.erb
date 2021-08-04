@@ -8,6 +8,7 @@
     <%= form.label :content %>
     <%= form.text_area :content, class: "form-control", rows: 10, required: true, maxlength: 500 %>
   </div>
+  <p><%= form.file_field :image, accept: "image/png,image/jpeg,image/gif" %></p>
   <div>
     <%= form.submit class: "btn btn-primary btn-block" %>
   </div>

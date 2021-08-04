@@ -3,6 +3,7 @@
   <div class="card-header">
     <h4><%= @post.title %></h4>
   </div>
+  <p><%= image_tag @post.image.thumb.url %></p>
   <div class="card-body">
     <p class="card-text"><%= simple_format(h @post.content) %></p>
   </div>
