@@ -7,6 +7,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @ingredients = @post.ingredients.build
+    @how_to_makes = @post.how_to_makes.build
   end
 
   def create
@@ -21,6 +23,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @ingredients = @post.ingredients
+    @how_to_makes = @post.how_to_makes
   end
 
   def edit
@@ -48,6 +52,8 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :image, :content)
+    params.require(:post).permit(:title, :image, :content,
+                                 ingredients_attributes: [:id, :ing_name, :quantity, :_destroy],
+                                 how_to_makes_attributes: [:id, :explanation, :_destroy])
   end
 end

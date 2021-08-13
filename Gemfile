@@ -61,6 +61,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "activeadmin"
 gem "carrierwave", "~> 2.0"
+gem "cocoon"
 gem "devise"
 gem "devise-i18n"
 gem "letter_opener_web", "~> 1.0"

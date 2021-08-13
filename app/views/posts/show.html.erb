@@ -7,4 +7,15 @@
   <div class="card-body">
     <p class="card-text"><%= simple_format(h @post.content) %></p>
   </div>
+  <div class="card-body">
+    <% @ingredients.each do |ing| %>
+      <p class="card-text">材料<%= simple_format(h ing.ing_name) %></p>
+      <p class="card-text">分量<%= simple_format(h ing.quantity) %></p>
+    <% end %>
+  </div>
+  <div class="card-body">
+    <% @how_to_makes.each do |make| %>
+      <p class="card-text">作り方<%= simple_format(h make.explanation) %></p>
+    <% end %>
+  </div>
 </section>
