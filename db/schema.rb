@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_13_050247) do
+ActiveRecord::Schema.define(version: 2021_08_14_220943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,21 +67,25 @@ ActiveRecord::Schema.define(version: 2021_08_13_050247) do
     t.index ["post_id"], name: "index_ingredients_on_post_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id", "post_id"], name: "index_likes_on_user_id_and_post_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.string "image"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "recipe_ingredients", force: :cascade do |t|
-    t.bigint "post_id", null: false
-    t.string "ing_name"
-    t.string "quantity"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_recipe_ingredients_on_post_id"
+    t.integer "likes_count", default: 0
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,5 +102,7 @@ ActiveRecord::Schema.define(version: 2021_08_13_050247) do
 
   add_foreign_key "how_to_makes", "posts"
   add_foreign_key "ingredients", "posts"
-  add_foreign_key "recipe_ingredients", "posts"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
+  add_foreign_key "posts", "users"
 end

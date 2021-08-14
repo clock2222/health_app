@@ -12,7 +12,8 @@ ja:
     models:
       user: ユーザー
       contact: お問い合わせ
-      post: メッセージ
+      post: 投稿
+      like: いいね
     attributes:
       user:
         name: 名前
@@ -24,3 +25,10 @@ ja:
       post:
         title: タイトル
         content: 内容
+        user: ユーザー
+      like:
+        user: ユーザー
+        post: 投稿
+  time:
+    formats:
+      default: '%Y年%-m月%-d日(%a) %-H時%-M分%-S秒'
