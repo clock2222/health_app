@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_14_220943) do
+ActiveRecord::Schema.define(version: 2021_08_17_035751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,19 @@ ActiveRecord::Schema.define(version: 2021_08_14_220943) do
     t.inet "remote_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "graphs", force: :cascade do |t|
+    t.integer "pain"
+    t.integer "fatigue"
+    t.integer "obesity"
+    t.integer "anxiety"
+    t.integer "insomnia"
+    t.integer "other"
+    t.bigint "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_graphs_on_post_id"
   end
 
   create_table "how_to_makes", force: :cascade do |t|
@@ -100,6 +113,7 @@ ActiveRecord::Schema.define(version: 2021_08_14_220943) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "graphs", "posts"
   add_foreign_key "how_to_makes", "posts"
   add_foreign_key "ingredients", "posts"
   add_foreign_key "likes", "posts"

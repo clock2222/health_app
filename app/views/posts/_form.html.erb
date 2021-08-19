@@ -8,6 +8,32 @@
     <%= f.label :content %>
     <%= f.text_area :content, class: "form-control", rows: 10, required: true, maxlength: 500 %>
   </div>
+  <%= f.fields_for :graphs do |graph| %>
+    <div class="form-group">
+      <%= graph.label :pain %>
+      <%= graph.number_field :pain, min: 0, max: 5 %>
+    </div>
+    <div class="form-group">
+      <%= graph.label :fatigue %>
+      <%= graph.number_field :fatigue, min: 0, max: 5%>
+    </div>
+    <div class="form-group">
+      <%= graph.label :obesity %>
+      <%= graph.number_field :obesity, min: 0, max: 5 %>
+    </div>
+    <div class="form-group">
+      <%= graph.label :anxiety %>
+      <%= graph.number_field :anxiety, min: 0, max: 5 %>
+    </div>
+    <div class="form-group">
+      <%= graph.label :insomnia %>
+      <%= graph.number_field :insomnia, min: 0, max: 5 %>
+    </div>
+    <div class="form-group">
+      <%= graph.label :other %>
+      <%= graph.number_field :other, min: 0, max: 5 %>
+    </div>
+  <% end %>
   <p><%= f.file_field :image, accept: "image/png,image/jpeg,image/gif" %></p>
   <div>
     <div class="post">

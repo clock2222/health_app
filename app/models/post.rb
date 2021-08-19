@@ -8,7 +8,8 @@ class Post < ApplicationRecord
   has_many :how_to_makes, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
-  accepts_nested_attributes_for :ingredients, :how_to_makes, allow_destroy: true
+  has_many :graphs, dependent: :destroy
+  accepts_nested_attributes_for :ingredients, :how_to_makes, :graphs, allow_destroy: true
 
   def liked_by?(user)
     likes.any? { |like| like.user_id == user.id }

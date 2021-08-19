@@ -27,6 +27,12 @@ post4.likes.create!(user_id: user2.id)
 post5.likes.create!(user_id: user3.id)
 # ***** 以上を編集・追加 *****
 
+post1.graphs.create!(pain: 5, fatigue: 4, obesity: 3, anxiety: 2, insomnia: 1, other: 0)
+post2.graphs.create!(pain: 5, fatigue: 4, obesity: 3, anxiety: 2, insomnia: 1, other: 0)
+post3.graphs.create!(pain: 5, fatigue: 4, obesity: 3, anxiety: 2, insomnia: 1, other: 0)
+post4.graphs.create!(pain: 5, fatigue: 4, obesity: 3, anxiety: 2, insomnia: 1, other: 0)
+post5.graphs.create!(pain: 5, fatigue: 4, obesity: 3, anxiety: 2, insomnia: 1, other: 0)
+
 # ログイン時に使用するアカウント（変数への代入は不要）
 User.create!(email: email, password: password)
 

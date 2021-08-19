@@ -9,10 +9,10 @@ class PostsController < ApplicationController
     @post = Post.new
     @ingredients = @post.ingredients.build
     @how_to_makes = @post.how_to_makes.build
+    @graphs = @post.graphs.build
   end
 
   def create
-    # @post = Post.new(post_params)
     @post = current_user.posts.new(post_params)
     if @post.save
       redirect_to @post, notice: "投稿しました"
@@ -26,6 +26,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @ingredients = @post.ingredients
     @how_to_makes = @post.how_to_makes
+    gon.chart_label = ["痛み", "疲労", "肥満", "不安", "不眠", "その他"]
+    gon.chart_data = @post.graphs.pluck(:pain, :fatigue, :obesity, :anxiety, :insomnia, :other).flatten
   end
 
   def edit
@@ -49,7 +51,6 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    # @post = Post.find(params[:id])
     @post = current_user.posts.find_by(id: params[:id])
     redirect_to root_path, alert: "権限がありません" if @post.nil?
   end
@@ -57,6 +58,7 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :image, :content,
                                  ingredients_attributes: [:id, :ing_name, :quantity, :_destroy],
-                                 how_to_makes_attributes: [:id, :explanation, :_destroy])
+                                 how_to_makes_attributes: [:id, :explanation, :_destroy],
+                                 graphs_attributes: [:id, :pain, :fatigue, :obesity, :anxiety, :insomnia, :other, :_destroy])
   end
 end
