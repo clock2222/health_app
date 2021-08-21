@@ -1,19 +1,40 @@
 <div>
   <p>【メールアドレス】 <%= post.user.email %></p>
-  <p>【内容】 <%= post.content %></p>
-  <p id="post-<%= post.id %>">
-    <% if post.liked_by?(current_user) %>
-      <%= render "like", post: post %>
-    <% else %>
-      <%= render "dislike", post: post %>
-    <% end %>
-  </p>
-  <p>
-    <%= link_to "詳細", post %>
-    <% if current_user.id == post.user_id %>
-      <%= link_to "編集", edit_post_path(post) %>
-      <%= link_to "削除", post_path(post), method: :delete, data: { confirm: "削除しますか？" } %>
-    <% end %>
-  </p>
 </div>
 <hr>
+
+<table class="table table-bordered table-striped mt-4">
+  <thead class="table-primary">
+    <tr>
+      <th scope="col">サムネイル</th>
+      <th scope="col" class="w-100">タイトル</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td class=".img-thumbnail"><%= image_tag post.image.thumb.url %></td>
+        <td class="break-word"><%= post.title %></td>
+        <td class="text-nowrap">
+          <%= link_to post, class: "btn btn-primary" do %>
+            <i class="fas fa-expand-alt"></i> <span class="d-none d-md-inline"> 詳細</span>
+          <% end %>
+        <% if current_user.id == post.user_id %>
+          <%= link_to edit_post_path(post), class: "btn btn-success" do %>
+            <i class="far fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
+          <% end %>
+          <%= link_to post, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-danger" do %>
+            <i class="far fa-trash-alt"></i> <span class="d-none d-md-inline"> 削除</span>
+          <% end %>
+        <% end %>
+        <p id="post-<%= post.id %>">
+          <% if post.liked_by?(current_user) %>
+            <%= render "posts/like", post: post %>
+          <% else %>
+            <%= render "posts/dislike", post: post %>
+          <% end %>
+        </p>
+        </td>
+      </tr>
+  </tbody>
+</table>

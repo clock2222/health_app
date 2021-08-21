@@ -35,6 +35,20 @@
     </div>
   <% end %>
   <p><%= f.file_field :image, accept: "image/png,image/jpeg,image/gif" %></p>
+  
+<div class="append__category">
+  <div class="category">
+    <div class="form__label">
+      <div class="weight-bold-text lavel__name ">
+        カテゴリー
+      </div>
+      <div class="lavel__Required">
+        <%= f.collection_select :category_id, @set_parents, :id, :name,{ include_blank: "選択してください"},class:"select_field", id:"post_category_id" %>
+      </div>
+    </div>
+  </div>
+</div>
+  
   <div>
     <div class="post">
       <div class="ingredients">

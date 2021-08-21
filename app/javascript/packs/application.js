@@ -11,11 +11,13 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
-require('./graph');
-require('@rails/ujs').start();
-require('turbolinks').start();
+// require('./graph');
+require('./category_post');
+require('./category');
+// require('@rails/ujs').start();
+// require('turbolinks').start();
 require('@rails/activestorage').start();
 require('channels');
 require('jquery');
-require('@nathanvda/cocoon');
-require('src/cocoon');
+// require('@nathanvda/cocoon');
+// require('src/cocoon');

@@ -7,6 +7,9 @@
       <%= render "dislike", post: @post %>
     <% end %>
   </p>
+  <P>
+    <%=  "#{ @category_parent.name } > #{ @category_child.name } > #{ @category_grandchild.name }" %>
+</P>
   <div class="card-header">
     <h4><%= @post.title %></h4>
   </div>
@@ -39,7 +42,6 @@
   <% end %>
 </div>
 </section>
-<%= Gon::Base.render_data %>
 <div class="base-container">
-  <canvas id="line-chart" width="100%" height="100%"></canvas>
+  <canvas id="radar-chart" width="100%" height="100%"></canvas>
 </div>

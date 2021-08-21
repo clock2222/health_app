@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[edit update destroy]
+  before_action :set_parents
 
   def index
     @posts = Post.includes(:user, :likes).order(:created_at)
@@ -28,6 +29,10 @@ class PostsController < ApplicationController
     @how_to_makes = @post.how_to_makes
     gon.chart_label = ["痛み", "疲労", "肥満", "不安", "不眠", "その他"]
     gon.chart_data = @post.graphs.pluck(:pain, :fatigue, :obesity, :anxiety, :insomnia, :other).flatten
+    @category_id = @post.category_id
+    @category_parent = Category.find(@category_id).parent.parent
+    @category_child = Category.find(@category_id).parent
+    @category_grandchild = Category.find(@category_id)
   end
 
   def edit
@@ -55,8 +60,12 @@ class PostsController < ApplicationController
     redirect_to root_path, alert: "権限がありません" if @post.nil?
   end
 
+  def set_parents
+    @set_parents = Category.where(ancestry: nil)
+  end
+
   def post_params
-    params.require(:post).permit(:title, :image, :content,
+    params.require(:post).permit(:title, :image, :content, :category_id,
                                  ingredients_attributes: [:id, :ing_name, :quantity, :_destroy],
                                  how_to_makes_attributes: [:id, :explanation, :_destroy],
                                  graphs_attributes: [:id, :pain, :fatigue, :obesity, :anxiety, :insomnia, :other, :_destroy])

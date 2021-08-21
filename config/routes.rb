@@ -16,4 +16,15 @@ Rails.application.routes.draw do
   resources :posts do
     resource :likes, only: [:create, :destroy]
   end
+
+  resources :categories do
+    collection do
+      get "get_category_children", defaults: { format: "json" }
+      get "get_category_grandchildren", defaults: { format: "json" }
+      get "menu_search"
+    end
+    member do
+      get "item_search"
+    end
+  end
 end

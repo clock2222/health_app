@@ -1,2 +1,4 @@
-<%= link_to "☆", post_likes_path(post), method: :post, remote: true %>
+<%= link_to post_likes_path(post), method: :post, class: "btn btn-light", remote: true do %>
+<i class="far fa-heart"></i><span class="d-none d-md-inline"> 共感</span>
 <%= post.likes_count %>
+<% end %>

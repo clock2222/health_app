@@ -1,26 +1,27 @@
 document.addEventListener('turbolinks:load', () => {
-  const lineLabel = gon.chart_label;
-  const lineData = gon.chart_data;
+  const radarLabel = gon.chart_label;
+  const radarData = gon.chart_data;
 
-  const lineChartData = {
-    labels: lineLabel,
+  const radarChartData = {
+    labels: radarLabel,
     datasets: [
       {
         label: '影響グラフ',
-        data: lineData,
+        data: radarData,
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1,
+        spanGaps: true,
       },
     ],
   };
 
-  const lineChartOption = {
+  const radarChartOption = {
     scales: {
       r: {
+        min: 0,
+        max: 5,
         ticks: {
-          suggestedMin: 0,
-          suggestedMax: 5,
           stepSize: 1,
           callback: function (value, index, values) {
             if (value == 0) {
@@ -42,10 +43,10 @@ document.addEventListener('turbolinks:load', () => {
     },
   };
 
-  const lineChartContext = document.getElementById('line-chart').getContext('2d');
-  new Chart(lineChartContext, {
+  const radarChartContext = document.getElementById('radar-chart').getContext('2d');
+  new Chart(radarChartContext, {
     type: 'radar',
-    data: lineChartData,
-    options: lineChartOption,
+    data: radarChartData,
+    options: radarChartOption,
   });
 });

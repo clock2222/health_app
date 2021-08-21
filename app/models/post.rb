@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   belongs_to :user
+  belongs_to :category
   has_many :ingredients, dependent: :destroy
   has_many :how_to_makes, dependent: :destroy
   has_many :likes, dependent: :destroy
