@@ -9,7 +9,10 @@
   </p>
   <P>
     <%=  "#{ @category_parent.name } > #{ @category_child.name } > #{ @category_grandchild.name }" %>
-</P>
+  </P>
+  <p>
+    <%= render_with_hashtags(@post.tag_name) %>
+  </p>
   <div class="card-header">
     <h4><%= @post.title %></h4>
   </div>

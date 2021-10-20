@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     resource :likes, only: [:create, :destroy]
   end
 
+  get "post/hashtag/:name", to: "posts#hashtag"
+  get "post/hashtag", to: "posts#hashtag"
+
   resources :categories do
     collection do
       get "get_category_children", defaults: { format: "json" }

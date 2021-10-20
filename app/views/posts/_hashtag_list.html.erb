@@ -1,0 +1,8 @@
+<div class= "hashtag-name">
+    <% @hashtags.sort.reverse.each do |count| %>
+        <% count[1].each do |hashtag| %>
+            <p><%= link_to  "##{hashtag.hashname} (#{hashtag.posts.count}) 件","/post/hashtag/#{hashtag.hashname}",data: {"turbolinks" => false} %>
+            </p>
+        <% end %>
+    <% end %>
+</div>

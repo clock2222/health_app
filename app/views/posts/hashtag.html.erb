@@ -1,0 +1,17 @@
+<% if params[:name] == nil %>
+
+<% else %>
+  <h2>ハッシュタグ #<%= @hashtag.hashname %></h2>
+    <ul>
+      <% @posts.each do |post| %>
+        <li>
+          <%= link_to post_path(post.id) do %>
+            <%= image_tag post.image.url %>
+            <%= render @posts %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+<% end %>
+
+<%= render "hashtag_list" %>

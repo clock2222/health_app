@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[edit update destroy]
   before_action :set_parents
+  before_action :hashtag, only: %i[index]
 
   def index
     @posts = Post.includes(:user, :likes).order(:created_at)
@@ -53,6 +54,16 @@ class PostsController < ApplicationController
     redirect_to root_path, alert: "削除しました"
   end
 
+  def hashtag
+    @user = current_user
+    if params[:name].nil?
+    else
+      @hashtag = Hashtag.find_by(hashname: params[:name])
+      @posts = @hashtag.posts.page(params[:page]).per(20).reverse_order
+    end
+    @hashtags = Hashtag.all.to_a.group_by { |hashtag| hashtag.posts.count }
+  end
+
   private
 
   def set_post
@@ -65,7 +76,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :image, :content, :category_id,
+    params.require(:post).permit(:title, :image, :content, :category_id, :tag_name,
                                  ingredients_attributes: [:id, :ing_name, :quantity, :_destroy],
                                  how_to_makes_attributes: [:id, :explanation, :_destroy],
                                  graphs_attributes: [:id, :pain, :fatigue, :obesity, :anxiety, :insomnia, :other, :_destroy])
