@@ -1,0 +1,43 @@
+<%= form_with model: @status, local: true do |f| %>
+  <div>
+    <%= f.label :sex %>
+    <%= f.select :sex, Status.sexes_i18n.invert %>
+  </div>
+  <div>
+    <%= f.label :age %>
+    <%= f.select :age, Status.ages_i18n.invert  %>
+  </div>
+  <div>
+    <%= f.label :height %>
+    <%= f.select :height, Status.heights_i18n.invert  %>
+  </div>
+  <div>
+    <%= f.label :weight %>
+    <%= f.select :weight, Status.weights_i18n.invert  %>
+  </div>
+  <div>
+    <%= f.label :body_type %>
+    <%= f.select :body_type, Status.body_types_i18n.invert  %>
+  </div>
+  <div>
+    <%= f.label :meal %>
+    <%= f.select :meal, Status.meals_i18n.invert  %>
+  </div>
+  <div>
+    <%= f.label :movement %>
+    <%= f.select :movement, Status.movements_i18n.invert  %>
+  </div>
+  <div>
+    <%= f.label :sleep %>
+    <%= f.select :sleep, Status.sleeps_i18n.invert  %>
+  </div>
+  <div>
+    <%= f.label :environment %>
+    <%= f.select :environment, Status.environments_i18n.invert  %>
+  </div>
+  <div>
+    <%= f.label :annual_income %>
+    <%= f.select :annual_income, Status.annual_incomes_i18n.invert  %>
+  </div>
+    <%= f.submit class: "btn btn-primary btn-block" %>
+<% end %>

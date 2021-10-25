@@ -34,6 +34,7 @@ class PostsController < ApplicationController
     @category_parent = Category.find(@category_id).parent.parent
     @category_child = Category.find(@category_id).parent
     @category_grandchild = Category.find(@category_id)
+    @statuses = Status.where(user_id: current_user.id)
   end
 
   def edit
@@ -76,7 +77,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :image, :content, :category_id, :tag_name,
+    params.require(:post).permit(:title, :image, :content, :category_id, :tag_name, :user_id,
                                  ingredients_attributes: [:id, :ing_name, :quantity, :_destroy],
                                  how_to_makes_attributes: [:id, :explanation, :_destroy],
                                  graphs_attributes: [:id, :pain, :fatigue, :obesity, :anxiety, :insomnia, :other, :_destroy])

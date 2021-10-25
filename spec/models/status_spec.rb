@@ -1,5 +1,5 @@
 require "rails_helper"
 
-RSpec.describe HashtagMap, type: :model do
+RSpec.describe Status, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

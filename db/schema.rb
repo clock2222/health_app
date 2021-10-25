@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_24_003427) do
+ActiveRecord::Schema.define(version: 2021_11_07_235943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,23 @@ ActiveRecord::Schema.define(version: 2021_10_24_003427) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "statuses", force: :cascade do |t|
+    t.integer "sex", default: 0
+    t.integer "age", default: 0
+    t.integer "height", default: 0
+    t.integer "weight", default: 0
+    t.integer "body_type", default: 0
+    t.integer "meal", default: 0
+    t.integer "movement", default: 0
+    t.integer "sleep", default: 0
+    t.integer "environment", default: 0
+    t.integer "annual_income", default: 0
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_statuses_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -136,6 +153,7 @@ ActiveRecord::Schema.define(version: 2021_10_24_003427) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -149,4 +167,5 @@ ActiveRecord::Schema.define(version: 2021_10_24_003427) do
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
+  add_foreign_key "statuses", "users"
 end

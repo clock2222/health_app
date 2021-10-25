@@ -14,6 +14,7 @@ ja:
       contact: お問い合わせ
       post: 投稿
       like: いいね
+      status: ステータス
     attributes:
       user:
         name: 名前
@@ -30,6 +31,9 @@ ja:
       like:
         user: ユーザー
         post: 投稿
+      status:
+        sex: 性別
+        age: 年齢
   time:
     formats:
       default: '%Y年%-m月%-d日(%a) %-H時%-M分%-S秒'

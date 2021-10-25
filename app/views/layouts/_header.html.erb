@@ -7,12 +7,13 @@
     <div class="navbar-nav">
       <%= link_to "投稿一覧", root_path, class: "nav-item nav-link active" %>
       <%= link_to "新規投稿", new_post_path, class: "nav-item nav-link active" %>
+      <%= link_to 'マイページ', mypage_path, class: "nav-item nav-link active" %>
       <% if user_signed_in? %>
         <%= link_to "アカウント編集", edit_user_registration_path, class: "nav-item nav-link active" %>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }, class: "nav-item nav-link active" %>
-        <%= "【ログイン中のアドレス】#{current_user.email}" %>
+        <%= "【ログイン中のユーザー】#{current_user.nickname}" %>
       <% else %>
-        <%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link active" %>
+        <%= link_to "アカウント登録", new_user_registration_path, class: "nav-item nav-link active" %>
         <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
         <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "nav-item nav-link active" %>
       <% end %>

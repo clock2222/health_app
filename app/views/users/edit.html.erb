@@ -1,0 +1,12 @@
+<h1>プロフィール編集</h1>
+
+<%= form_with model: @user, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :nickname %>
+    <%= f.text_field :nickname, class: "form-control", rows: 1, required: true, maxlength: 30 %>
+  </div>
+  <div>
+    <%= f.submit "保存", class: "btn btn-primary btn-block" %>
+  </div>
+<% end %>
+

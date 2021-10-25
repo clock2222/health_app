@@ -6,7 +6,7 @@ if Rails.env.production?
   ActionMailer::Base.smtp_settings = {
     port: 587,
     address: "smtp.gmail.com",
-    user_name: Rails.application.credentials.gmail[:address],
+    nickname: Rails.application.credentials.gmail[:address],
     password: Rails.application.credentials.gmail[:password],
     domain: host,
     authentication: "plain"

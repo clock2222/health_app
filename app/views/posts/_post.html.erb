@@ -1,5 +1,5 @@
 <div>
-  <p>【メールアドレス】 <%= post.user.email %></p>
+  <p><%= post.user.nickname.present? ? "投稿者： #{post.user.nickname}" : "投稿No.#{post.user.id}" %></p>
 </div>
 <hr>
 
