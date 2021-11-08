@@ -2,6 +2,8 @@
   <div>
     <%= f.label :sex %>
     <%= f.select :sex, Status.sexes_i18n.invert %>
+    <small class="text-muted">あなたの性別</small>
+
   </div>
   <div>
     <%= f.label :age %>

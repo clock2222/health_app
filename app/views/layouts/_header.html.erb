@@ -1,22 +1,32 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
-  <span class="navbar-brand">タイトル</span>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <%= link_to "投稿一覧", root_path, class: "nav-item nav-link active" %>
-      <%= link_to "新規投稿", new_post_path, class: "nav-item nav-link active" %>
-      <%= link_to 'マイページ', mypage_path, class: "nav-item nav-link active" %>
-      <% if user_signed_in? %>
-        <%= link_to "アカウント編集", edit_user_registration_path, class: "nav-item nav-link active" %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }, class: "nav-item nav-link active" %>
-        <%= "【ログイン中のユーザー】#{current_user.nickname}" %>
-      <% else %>
-        <%= link_to "アカウント登録", new_user_registration_path, class: "nav-item nav-link active" %>
-        <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
-        <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "nav-item nav-link active" %>
-      <% end %>
+<nav class="navbar navbar-expand-sm navbar-dark background-color fixed-top">
+  <div class="base-container justify-content-around">
+    <%= link_to root_path, class: "justify-content-start", data: {"turbolinks" => false } do %>
+      <%= image_tag 'logo2.png', class: "logo", alt: "不健康レシピ" %>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+      <div class="navbar-nav", data-turbolinks='false'>
+        <% if user_signed_in? %>
+          <%= link_to "トップ", posts_path, class: "nav-item nav-link active my-auto" %>
+          <%= render "posts/category" %>
+          <%= link_to "レシピを書く", new_post_path, class: "nav-item nav-link active my-auto"%>
+          <%= link_to 'マイページ', mypage_path, class: "nav-item nav-link active my-auto" %>
+          <%= link_to "アカウント編集", edit_user_registration_path, class: "nav-item nav-link active my-auto" %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }, class: "nav-item nav-link active my-auto" %>
+          <%= link_to "お問い合わせ", "/contacts", class: "nav-item nav-link active my-auto" %>
+          <div class="img-responsive center-block text-light">
+            <%= image_tag current_user.avatar.thumb.url, class: "rounded-circle" %>
+            <%= "#{current_user.nickname}" %>
+          </div>
+        <% else %>
+          <%= link_to "アカウント登録", new_user_registration_path, class: "nav-item nav-link active" %>
+          <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %>
+          <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "nav-item nav-link active" %>
+        <% end %>
+
+      </div>
     </div>
   </div>
 </nav>

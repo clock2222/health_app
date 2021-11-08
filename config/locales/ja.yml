@@ -15,6 +15,8 @@ ja:
       post: 投稿
       like: いいね
       status: ステータス
+      like_comment: いいね
+      ingredient: レシピの材料
     attributes:
       user:
         name: 名前
@@ -24,16 +26,42 @@ ja:
         email: メールアドレス
         content: 内容
       post:
-        title: タイトル
-        content: 内容
+        title: レシピ名
+        content: レシピの説明
         user: ユーザー
-        tag_name: ハッシュタグ
+        ing_name: レシピの材料
+        hashname: ハッシュタグ
+        category: カテゴリー
+        thumbnail: サムネイル画像
       like:
         user: ユーザー
         post: 投稿
+      like_comment:
+        user: ユーザー
+        comment: コメント
       status:
         sex: 性別
         age: 年齢
+        height: 身長
+        weight: 体重
+        body_type: 体型
+        meal: 食事
+        movement: 運動
+        sleep: 睡眠
+        environment: 環境
+        annual_income: 年収
+      ingredient:
+        ing_name: 材料名
+        quantity: 分量
+        explanation: 説明
+      graph:
+        graph_a: 心（感情・疲労）
+        graph_b: 身体（痛み・不調）
+        graph_c: 睡眠（質・時間）
+        graph_d: 集中力（思考・記憶）
+        graph_e: 社会（人間関係・社交性）
+        graph_f: お金（経済・年収）
   time:
     formats:
       default: '%Y年%-m月%-d日(%a) %-H時%-M分%-S秒'
+      short: '%m/%d %H:%M'

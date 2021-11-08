@@ -1,40 +1,38 @@
-<div>
-  <p><%= post.user.nickname.present? ? "投稿者： #{post.user.nickname}" : "投稿No.#{post.user.id}" %></p>
-</div>
-<hr>
-
-<table class="table table-bordered table-striped mt-4">
-  <thead class="table-primary">
-    <tr>
-      <th scope="col">サムネイル</th>
-      <th scope="col" class="w-100">タイトル</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td class=".img-thumbnail"><%= image_tag post.image.thumb.url %></td>
-        <td class="break-word"><%= post.title %></td>
-        <td class="text-nowrap">
-          <%= link_to post, class: "btn btn-primary" do %>
-            <i class="fas fa-expand-alt"></i> <span class="d-none d-md-inline"> 詳細</span>
-          <% end %>
+<div class="mx-3 my-3">
+  <div class="card">
+    <div class="d-flex justify-content-between">
+      <div class="">
         <% if current_user.id == post.user_id %>
-          <%= link_to edit_post_path(post), class: "btn btn-success" do %>
+          <%= link_to edit_post_path(post), class: "btn btn-success", data: {"turbolinks" => false } do %>
             <i class="far fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
           <% end %>
           <%= link_to post, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-danger" do %>
             <i class="far fa-trash-alt"></i> <span class="d-none d-md-inline"> 削除</span>
           <% end %>
         <% end %>
-        <p id="post-<%= post.id %>">
-          <% if post.liked_by?(current_user) %>
-            <%= render "posts/like", post: post %>
-          <% else %>
-            <%= render "posts/dislike", post: post %>
-          <% end %>
-        </p>
-        </td>
-      </tr>
-  </tbody>
-</table>
+      </div>
+      <div id="post-<%= post.id %>">
+        <% if post.liked_by?(current_user) %>
+          <%= render "posts/like", post: post %>
+        <% else %>
+          <%= render "posts/dislike", post: post %>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to post, class: "card-img-top", "data-turbolinks": false, data: {"turbolinks"=>false} do %>
+      <%= image_tag post.image.thumb.url, class: "bd-placeholder-img card-img-top" %>
+    <% end %>
+    
+    <h4 class="card-title"><%= post.title %></h4>
+    
+    <div class= "hashtag-name d-inline-flex flex-wrap">
+        <% post.hashtags.first(3).each do |tag| %>
+            <span class="mx-2">
+                <%= link_to "#{tag.hashname}", hashtag_posts_path(hashtag_id: tag.id), data: {"turbolinks" => false} %>
+            </span>
+        <% end %>
+    </div>
+
+    <%= post.user.nickname.present? ? "投稿者： #{post.user.nickname}" : "投稿No.#{post.user.id}" %>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+<%= link_to post_like_comments_path(comment), method: :post, class: "btn btn-outline-primary", remote: true do %>
+  <i class="far fa-heart"></i>
+  <%= comment.likes_count %>
+<% end %>

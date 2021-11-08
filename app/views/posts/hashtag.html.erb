@@ -1,8 +1,9 @@
-<% if params[:name] == nil %>
+<div class="base-content">
+  <%= render "hashtag_list" %>
+  <% if params[:name] == nil %>
 
-<% else %>
-  <h3>ハッシュタグ #<%= @hashtag.hashname %></h3>
-            <%= render @posts %>
-<% end %>
-
-<%= render "hashtag_list" %>
+  <% else %>
+    <h3>ハッシュタグ #<%= @hashtag.hashname %></h3>
+              <%= render @posts %>
+  <% end %>
+</div>

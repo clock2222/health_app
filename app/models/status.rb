@@ -111,7 +111,7 @@ class Status < ApplicationRecord
   }, _prefix: true
 
   enum meal: {
-    defalut: 0,
+    default: 0,
     one_on_less_than: 1,
     one_on_one: 2,
     one_on_two: 3,
@@ -140,7 +140,7 @@ class Status < ApplicationRecord
   }, _prefix: true
 
   enum movement: {
-    defalut: 0,
+    default: 0,
     low_activities: 1,
     middle_activities: 2,
     high_activities: 3
@@ -148,7 +148,7 @@ class Status < ApplicationRecord
   }, _prefix: true
 
   enum sleep: {
-    defalut: 0,
+    default: 0,
     tree_hours_less: 1,
     four_hours: 2,
     five_hours: 3,
@@ -160,7 +160,7 @@ class Status < ApplicationRecord
   }, _prefix: true
 
   enum environment: {
-    defalut: 0,
+    default: 0,
     low: 1,
     high: 2,
     low_preferred: 3,
@@ -169,7 +169,7 @@ class Status < ApplicationRecord
   }, _prefix: true
 
   enum annual_income: {
-    defalut: 0,
+    default: 0,
     ninety_nine: 1,
     million: 2,
     twenty_million: 3,

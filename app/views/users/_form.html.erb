@@ -1,0 +1,4 @@
+<%= form_with model: @user, local: true do |form| %>
+  <p class="d-flex justify-content-center"><%= form.file_field :avatar, accept: "image/png,image/jpeg,image/gif" %></p>
+  <p class="d-flex justify-content-center"><%= form.submit "画像を変更", class: "btn btn-primary btn-block" %></p>
+<% end %>

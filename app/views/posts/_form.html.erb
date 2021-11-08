@@ -1,95 +1,108 @@
 <%= render "layouts/error_messages" %>
 <%= form_with model: @post, local: true do |f| %>
-  <div class="form-group">
-    <%= f.label :title%>
-    <%= f.text_field :title, class: "form-control", required: true, maxlength: 50 %>
+  <div class="form-group mt-5 col-12">
+    <%= f.label :title, class: "h3" %>
+    <%= f.text_field :title, class: "form-control form-control-lg", required: true, maxlength: 30, placeholder: "例）頭痛の起こし方、3日坊主の作り方、不安の作り方" %>
   </div>
-  <div class="form-group">
-    <%= f.label :content %>
-    <%= f.text_area :content, class: "form-control", rows: 10, required: true, maxlength: 500 %>
+
+  <div class="form-group mt-5 col-12">
+    <%= f.label :thumbnail, class: "h3" %>
+    <%= f.file_field :image, accept: "image/png,image/jpeg,image/gif", class: "form-control-file" %>
   </div>
-    <div class="form-group">
-    <%= f.label :tag_name %>
-    <%= f.text_area :tag_name, class: "form-control", rows: 1, required: true, maxlength: 500 %>
-  </div>
-  <%= f.fields_for :graphs do |graph| %>
-    <div class="form-group">
-      <%= graph.label :pain %>
-      <%= graph.number_field :pain, min: 0, max: 5 %>
-    </div>
-    <div class="form-group">
-      <%= graph.label :fatigue %>
-      <%= graph.number_field :fatigue, min: 0, max: 5%>
-    </div>
-    <div class="form-group">
-      <%= graph.label :obesity %>
-      <%= graph.number_field :obesity, min: 0, max: 5 %>
-    </div>
-    <div class="form-group">
-      <%= graph.label :anxiety %>
-      <%= graph.number_field :anxiety, min: 0, max: 5 %>
-    </div>
-    <div class="form-group">
-      <%= graph.label :insomnia %>
-      <%= graph.number_field :insomnia, min: 0, max: 5 %>
-    </div>
-    <div class="form-group">
-      <%= graph.label :other %>
-      <%= graph.number_field :other, min: 0, max: 5 %>
-    </div>
-  <% end %>
-  <p><%= f.file_field :image, accept: "image/png,image/jpeg,image/gif" %></p>
-  
-<div class="append__category">
-  <div class="category">
-    <div class="form__label">
-      <div class="weight-bold-text lavel__name ">
-        カテゴリー
-      </div>
-      <div class="lavel__Required">
-        <%= f.collection_select :category_id, @set_parents, :id, :name,{ include_blank: "選択してください"},class:"select_field", id:"post_category_id" %>
-      </div>
-    </div>
-  </div>
-</div>
-  
-  <div>
-    <div class="post">
+
+  <div class="my-2 mt-5 col-12">
+    <div class="post my-2">
       <div class="ingredients">
         <div class="mx-auto">
+          <%= f.label :ing_name, class: "h3" %>
           <%= f.fields_for :ingredients do |t| %>
             <%= render "posts/ingredient_fields", f: t %>
           <% end %>
         </div>
         <div id="detail-association-insertion-point1"></div>
-        <div class="col-10 mx-auto mt-2">
-          <%= link_to_add_association "+フォームを追加", f, :ingredients,
-        class: "btn btn-secondary btn-block",
-        data: {
-        association_insertion_node: '#detail-association-insertion-point1',
-        association_insertion_method: 'append'
-        }%>
-        </div>
-      </div>
-    </div>
-    <div class="post">
-      <div class="how_to_makes">
-        <div class="mx-auto">
-          <%= f.fields_for :how_to_makes do |t| %>
-            <%= render "posts/how_to_make_fields", f: t %>
+          <div class="col-10 mx-auto mt-2">
+            <%= link_to_add_association f, :ingredients,
+          class: "btn btn-secondary btn-block",
+          data: {
+          association_insertion_node: '#detail-association-insertion-point1',
+          association_insertion_method: 'append'
+          } do %>
+            <i class="far fa-plus-square"></i> <span class="d-none d-md-inline"> フォームを追加</span>
           <% end %>
         </div>
-        <div id="detail-association-insertion-point2"></div>
-        <div class="col-10 mx-auto mt-2">
-          <%= link_to_add_association "+フォームを追加", f, :how_to_makes,
-        class: "btn btn-secondary btn-block",
-        data: {
-        association_insertion_node: '#detail-association-insertion-point2',
-        association_insertion_method: 'append'
-        }%>
+      </div>
+    </div>
+
+  <div class="form-group col-12">
+    <%= f.label :content, class: "h3 mt-5" %>
+    <%= f.text_area :content, class: "form-control", rows: 5, required: true, maxlength: 500 %>
+  </div>
+
+  <div class="append__category mt-5 col-12">
+    <div class="category">
+      <div class="form__label">
+        <div class="weight-bold-text lavel__name ">
+          <%= f.label :category, class: "h3" %>
+        </div>
+        <div class="lavel__Required">
+          <%= f.collection_select :category_id, @set_parents, :id, :name,{ include_blank: "選択してください"},class:"select_field form-control col-md-3", id:"post_category_id" %>
         </div>
       </div>
     </div>
-    <%= f.submit class: "btn btn-primary btn-block" %>
   </div>
+
+  <div class="form-group col-12">
+    <%= f.label :hashname, class: "h3 mt-5" %>
+    <%= f.text_area :hashname, value: @tag_list,class: "form-control", rows: 1, required: true, maxlength: 100, placeholder: "例）コーヒー 頭痛 吐き気" %>
+  </div>
+  
+  <div class="row my-5">
+    <div class="chart-container col-md-6 mx-auto my-auto2">
+      <canvas id="myChart"></canvas>
+    </div>
+    <div class="slidecontainer col-md-4 mx-auto my-auto" id="sliders">
+      <%= f.fields_for :graphs do |graph| %>
+        <div class="form-group">
+          <%= graph.label :graph_a %>
+          <%= graph.range_field :graph_a, in: 0..4, list: "tickmarks", class: "slider form-control-range", id: "slider_a"%>
+          <span id="val_a">0</span>
+        </div>
+        <div class="form-group">
+          <%= graph.label :graph_b %>
+          <%= graph.range_field :graph_b, in: 0..4, list: "tickmarks", class: "slider form-control-range", id: "slider_b" %>
+          <span id="val_b">0</span>
+        </div>
+        <div class="form-group">
+          <%= graph.label :graph_c %>
+          <%= graph.range_field :graph_c, in: 0..4, list: "tickmarks", class: "slider form-control-range", id: "slider_c" %>
+          <span id="val_c">0</span>
+        </div>
+        <div class="form-group">
+          <%= graph.label :graph_d %>
+          <%= graph.range_field :graph_d, in: 0..4, list: "tickmarks", class: "slider form-control-range", id: "slider_d" %>
+          <span id="val_d">0</span>
+        </div>
+        <div class="form-group">
+          <%= graph.label :graph_e %>
+          <%= graph.range_field :graph_e, in: 0..4, list: "tickmarks", class: "slider form-control-range", id: "slider_e" %>
+          <span id="val_e">0</span>
+        </div>
+        <div class="form-group">
+          <%= graph.label :graph_f %>
+          <%= graph.range_field :graph_f, in: 0..4, list: "tickmarks", class: "slider form-control-range", id: "slider_f" %>
+          <span id="val_f">0</span>
+        </div>
+        <datalist id="tickmarks">
+          <option value="0"></option>
+          <option value="1"></option>
+          <option value="2"></option>
+          <option value="3"></option>
+          <option value="4"></option>
+          <option value="5"></option>
+        </datalist>
+      <% end %>
+    </div>
+  </div>
+  <%= f.submit class: "btn btn-primary btn-block btn-lg mb-5" %>
 <% end %>
+<%= javascript_pack_tag 'form_graph', 'data-turbolinks-track': 'reload' %>

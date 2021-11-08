@@ -1,9 +1,24 @@
 <div class="nested-fields">
-  <div class="row mx-auto">
-    <div class="col-5"><%= f.text_field :ing_name, class: "form-control", placeholder: "材料" %></div>
-    <div class="offset-1 col-2"><%= f.text_field :quantity, class: "form-control", placeholder: "分量" %></div>
-    <div class="offset-1 col-1 px-0 w-auto">
-      <%= link_to_remove_association "削除", f, class: "btn btn-secondary btn-block" %>
+  <div class="row col-12 mx-auto">
+    <div class="my-auto">
+      <%= link_to_remove_association f, class: "btn btn-secondary btn-block" do %>
+        <i class="fas fa-trash-alt"></i> 
+      <% end %>
+    </div>
+    <div class="col-10 offset-md-1 row">
+      <div class="col-md-6 mt-3">
+        <%= f.label :ing_name %>
+        <%= f.text_field :ing_name, class: "form-control", placeholder: "例）コーヒー" %>
+      </div>
+      <div class="col-md-3 offset-md-1 mt-3">
+        <%= f.label :quantity %>
+        <%= f.text_field :quantity, class: "form-control", placeholder: "例）1日６杯以上" %>
+      </div>
+      <div class="col-md-12 mt-3">
+        <%= f.label :explanation %>
+        <%= f.text_field :explanation, class: "form-control", placeholder: "例）胃に負担をかけるのがポイント" %>
+      </div>
     </div>
   </div>
+  <hr>
 </div>

@@ -1,26 +1,22 @@
-
-  <ul class='header__headerInner__nav__listsLeft'>
-  <li class='header__headerInner__nav__listsLeft__item'>
-    <%= link_to  posts_path, class: "category-button", id: 'categoBtn' do %>
-      カテゴリーから探す
-    <% end %>
-    <div id='tree_menu'>
-      <ul class='categoryTree'>
-        <% @set_parents.each do |parent| %>
-          <li class="category_parent">
-            <%= link_to item_search_category_path(parent) do %>
-              <input type="button" value="<%= parent.name %>" name="<%= parent.id %>" class="parent_btn">
-            <% end %>
-          </li>
+<%= link_to  posts_path, class: "category-button nav-item nav-link active my-auto", id: 'categoBtn', 'data-turbolinks': false do %>
+  カテゴリー
+<% end %>
+<div id='tree_menu'>
+  <ul class='categoryTree'>
+    <% @set_parents.each do |parent| %>
+      <li class="category_parent">
+        <%= link_to item_search_category_path(parent), 'data-turbolinks': false do %>
+          <input type="button" value="<%= parent.name %>" name="<%= parent.id %>" class="parent_btn">
         <% end %>
-        <li class="category_parent">
-            <%= link_to posts_path do %>
-              <input type="button" value="全てのカテゴリー" id="all_btn">
-            <% end %>
-        </li>
-      </ul>
-      <ul class='categoryTree-child'></ul>
-      <ul class='categoryTree-grandchild'></ul>
-    </div>
-  </li>
-</ul>
+      </li>
+    <% end %>
+    <li class="category_parent">
+        <%= link_to posts_path do %>
+          <input type="button" value="全てのカテゴリー" id="all_btn">
+        <% end %>
+    </li>
+  </ul>
+  <ul class='categoryTree-child'></ul>
+  <ul class='categoryTree-grandchild'></ul>
+</div>
+

@@ -18,7 +18,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     # For Rails 3.1+ asset pipeline compatibility:
     # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
 
-    "/images/fallback/" + [version_name, "default.png"].compact.join("_")
+    "/images/fallback/#{[version_name, 'default_image.png'].compact.join('_')}"
   end
 
   # Process files as they are uploaded:
@@ -30,7 +30,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fit: [100, 100]
+    process resize_to_fill: [320, 240, "Center"]
   end
 
   # Add an allowlist of extensions which are allowed to be uploaded.
@@ -50,10 +50,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   process convert: "jpg"
-  process resize_to_limit: [200, 300]
 
   def filename
-    super.chomp(File.extname(super)) + ".jpg" if original_filename.present?
+    "#{super.chomp(File.extname(super))}.jpg" if original_filename.present?
   end
 
   protected

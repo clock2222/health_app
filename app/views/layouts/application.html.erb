@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HealthApp</title>
+    <title>不健康レシピ</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= Gon::Base.render_data %>
+    <%= stylesheet_link_tag 'reset', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag('favicon2.png') %>
   </head>
   <body>
-    <header>
-      <%= render "layouts/header" %>
-    </header>
-    <main>
-      <%= render "layouts/flash" %>
-      <hr>
-      <div class="base-container">
-        <%= yield %>
-      </div>
-    </main>
-    <%= javascript_pack_tag 'graph', 'data-turbolinks-track': 'reload' %>
+    <%= Gon::Base.render_data %>
+      <header>
+        <%= render "layouts/header" %>
+      </header>
+      <main>
+        <%= render "layouts/flash" %>
+        <div class="base-container">
+          <%= yield %>
+        </div>
+      </main>
+      <footer class="background-color fixed-bottom">
+        <%= render "layouts/footer" %>
+      </footer>
   </body>
 </html>

@@ -1,4 +1,4 @@
-<%= link_to post_likes_path(post), method: :delete, class: "btn btn-info", remote: true do %>
-<i class="fas fa-heart"></i> <span class="d-none d-md-inline"> 共感</span>
+<%= link_to post_likes_path(post), method: :delete, class: "btn btn-primary", remote: true do %>
+<i class="fas fa-heart"></i>
 <%= post.likes_count %>
 <% end %>

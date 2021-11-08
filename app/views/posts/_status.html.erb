@@ -1,0 +1,23 @@
+ <% @statuses.each do |status| %>
+  <p>
+    性別:<%= status.sex_i18n %>
+  <br>
+    年齢:<%= status.age_i18n %>
+  <br>
+    身長:<%= status.height_i18n %>
+  <br>
+    体重:<%= status.weight_i18n %>
+  <br>
+    体型:<%= status.body_type_i18n %>
+  <br>
+    食事:<%= status.meal_i18n %>
+  <br>
+    運動:<%= status.movement_i18n %>
+  <br>
+    睡眠:<%= status.sleep_i18n %>
+  <br>
+    環境:<%= status.environment_i18n %>
+  <br>
+    年収:<%= status.annual_income_i18n %>
+  </P>
+<% end %>

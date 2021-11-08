@@ -89,7 +89,7 @@ ja:
         up_to_one_hundred_forty_four: 140~144kg
         up_to_one_hundred_forty_nine: 145~149kg
       body_type:
-        defalut: --------
+        default: --------
         under_weight: 痩せ型(BMI値18.5未満)
         normal_range: 普通体型(BMI値25.0未満)
         pre_muscle: 筋肉度１(BMI値30.0未満)
@@ -101,7 +101,7 @@ ja:
         obese_class_two: 肥満度３(BMI40.0未満)
         obese_class_three: 肥満度４筋肉度４(BMI値40.0以上)
       meal:
-        defalut: --------
+        default: --------
         one_on_less_than: １日１食（１回：１人前未満）
         one_on_one: １日１食（１回：１人前）
         one_on_two: １日１食（１回：２人前）
@@ -127,12 +127,12 @@ ja:
         six_on_two: １日６食（１回：２人前）
         six_on_three: １日６食（１回：３人前以上）
       movement:
-        defalut: --------
+        default: --------
         low_activities: 生活の大部分が座位、又は静的な活動が中心
         middle_activities: 座位中心の仕事かつ移動・立位・家事等の軽運動がある
         high_activities: 移動や立位中心、または余暇に活発な運動習慣がある
       sleep:
-        defalut: --------
+        default: --------
         tree_hours_less: 1日 3時間以下
         four_hours: 1日 3~4時間
         five_hours: 1日 4~5時間
@@ -142,14 +142,14 @@ ja:
         ten_hours: 1日 9~10時間
         ten_hours_more: 1日 10時間以上
       environment:
-        defalut: --------
+        default: --------
         low: 低い（ローテブルやソファーを中心とした環境）
         high: 高い（イスとテーブルのセットを中心とした環境）
         low_preferred: どちらもあるが低い方で過ごす事が多い
         high_preferred: どちらもあるが高い方で過ごす事が多い
         equivalent: どちらもバランスよく使い分けて過ごしている
       annual_income:
-        defalut: --------
+        default: --------
         ninety_nine: 年収 0~99万円
         million: 年収 100万円~
         twenty_million: 年収 200万円~

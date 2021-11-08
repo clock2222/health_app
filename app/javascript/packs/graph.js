@@ -1,4 +1,4 @@
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const radarLabel = gon.chart_label;
   const radarData = gon.chart_data;
 
@@ -20,7 +20,12 @@ document.addEventListener('turbolinks:load', () => {
     scales: {
       r: {
         min: 0,
-        max: 5,
+        max: 4,
+        pointLabels: {
+          font: {
+            size: 20,
+          },
+        },
         ticks: {
           stepSize: 1,
           callback: function (value, index, values) {
@@ -33,9 +38,7 @@ document.addEventListener('turbolinks:load', () => {
             } else if (value == 3) {
               return '強く影響する';
             } else if (value == 4) {
-              return '日常生活に支障する';
-            } else if (value == 5) {
-              return '医者にかかる/かかった';
+              return '日常生活に支障を来す';
             }
           },
         },

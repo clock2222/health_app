@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_07_235943) do
+ActiveRecord::Schema.define(version: 2021_12_13_014826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,17 @@ ActiveRecord::Schema.define(version: 2021_11_07_235943) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "likes_count", default: 0
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -59,12 +70,12 @@ ActiveRecord::Schema.define(version: 2021_11_07_235943) do
   end
 
   create_table "graphs", force: :cascade do |t|
-    t.integer "pain"
-    t.integer "fatigue"
-    t.integer "obesity"
-    t.integer "anxiety"
-    t.integer "insomnia"
-    t.integer "other"
+    t.integer "graph_a", default: 0
+    t.integer "graph_b", default: 0
+    t.integer "graph_c", default: 0
+    t.integer "graph_d", default: 0
+    t.integer "graph_e", default: 0
+    t.integer "graph_f", default: 0
     t.bigint "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -87,21 +98,24 @@ ActiveRecord::Schema.define(version: 2021_11_07_235943) do
     t.index ["hashname"], name: "index_hashtags_on_hashname", unique: true
   end
 
-  create_table "how_to_makes", force: :cascade do |t|
-    t.bigint "post_id", null: false
-    t.text "explanation"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_how_to_makes_on_post_id"
-  end
-
   create_table "ingredients", force: :cascade do |t|
     t.bigint "post_id", null: false
     t.string "ing_name"
     t.string "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "explanation"
     t.index ["post_id"], name: "index_ingredients_on_post_id"
+  end
+
+  create_table "like_comments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "comment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_like_comments_on_comment_id"
+    t.index ["user_id", "comment_id"], name: "index_like_comments_on_user_id_and_comment_id", unique: true
+    t.index ["user_id"], name: "index_like_comments_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -139,6 +153,8 @@ ActiveRecord::Schema.define(version: 2021_11_07_235943) do
     t.integer "sleep", default: 0
     t.integer "environment", default: 0
     t.integer "annual_income", default: 0
+    t.integer "happiness", default: 0
+    t.integer "human_relationship", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -154,15 +170,19 @@ ActiveRecord::Schema.define(version: 2021_11_07_235943) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "nickname"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "graphs", "posts"
   add_foreign_key "hashtag_maps", "hashtags"
   add_foreign_key "hashtag_maps", "posts"
-  add_foreign_key "how_to_makes", "posts"
   add_foreign_key "ingredients", "posts"
+  add_foreign_key "like_comments", "comments"
+  add_foreign_key "like_comments", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "categories"

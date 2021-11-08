@@ -1,5 +1,5 @@
 class StatusesController < ApplicationController
-  before_action :set_status, only: %i[edit update destroy]
+  before_action :set_status, only: %i[edit update]
 
   def new
     @status = Status.new

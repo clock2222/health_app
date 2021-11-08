@@ -5,8 +5,8 @@ $(document).on('turbolinks:load', function () {
   }
   function appendChildrenBox(insertHTML) {
     var childSelectHtml = '';
-    childSelectHtml = `<div class="category__child" id="children_wrapper">
-                        <select id="child__category" name="post[category_id]" class="select_field">
+    childSelectHtml = `<div class="category__child mt-3" id="children_wrapper">
+                        <select id="child__category" name="post[category_id]" class="select_field form-control col-md-3 ">
                           <option value="">---</option>
                           ${insertHTML}
                         </select>
@@ -15,8 +15,8 @@ $(document).on('turbolinks:load', function () {
   }
   function appendGrandchildrenBox(insertHTML) {
     var grandchildSelectHtml = '';
-    grandchildSelectHtml = `<div class="category__child" id="grandchildren_wrapper">
-                              <select id="grandchild__category" name="post[category_id]" class="select_field">
+    grandchildSelectHtml = `<div class="category__child mt-3" id="grandchildren_wrapper">
+                              <select id="grandchild__category" name="post[category_id]" class="select_field form-control col-md-3">
                                 <option value="">---</option>
                                 ${insertHTML}
                                 </select>
@@ -28,7 +28,7 @@ $(document).on('turbolinks:load', function () {
     var parentId = document.getElementById('post_category_id').value;
     if (parentId != '') {
       $.ajax({
-        url: '/categories/get_category_children/',
+        url: '/categories/category_children/',
         type: 'GET',
         data: { parent_id: parentId },
         dataType: 'json',
@@ -57,9 +57,9 @@ $(document).on('turbolinks:load', function () {
     var childId = document.getElementById('child__category').value;
     if (childId != '') {
       $.ajax({
-        url: '/categories/get_category_grandchildren/',
+        url: '/categories/category_grandchildren/',
         type: 'GET',
-        data: { child_id: childId },
+        data: { children_id: childId },
         dataType: 'json',
       })
         .done(function (grandchildren) {

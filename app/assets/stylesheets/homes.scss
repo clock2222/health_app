@@ -1,3 +1,68 @@
-// Place all the styles related to the homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.home-img {
+  margin-top: 8.4%;
+  padding-top: 10%;
+
+  .page-title {
+    font-size: 5rem;
+    font-weight: normal;
+  }
+
+  p {
+    font-size: 1.125rem;
+    margin: 10px 0 42px;
+  }
+
+  .botton {
+    font-size: 1.375rem;
+    background: #0bd;
+    color: #fff;
+    border-radius: 5px;
+    padding: 18px 32px;
+
+    &:hover {
+      background: #0090aa;
+    }
+  }
+}
+
+.heading-top {
+  font-size: 3.5rem;
+}
+
+.big-bg {
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+#home {
+  background-image: url('home.png'), linear-gradient(#5ce1e6, #5271ff);
+  background-blend-mode: soft-light;
+  min-height: 100vh;
+}
+
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+// -----------------------------------------------------
+
+@media (max-width: 600px) {
+  .home-img {
+    margin-top: 30%;
+    padding-top: 30%;
+
+    .page-title {
+      font-size: 2.5rem;
+    }
+  }
+
+  .heading-top {
+    font-size: 2.3rem;
+  }
+}

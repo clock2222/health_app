@@ -1,9 +1,56 @@
-<p>マイページ</p>
-<p>アカウント</p>
-<p>ロゴ・タイトル</p>
-<p>入力フォーム</p>
-<p>検索ボタン</p>
-<p>レシピの投稿</p>
-<p>通知</p>
-<p>ポイント</p>
-<p>ランキング</p>
+<div id="home" class="big-bg full-width">
+  <div class="home-img text-center">
+    <h2 class="page-title text-light text-shadow">
+    明日の健康は
+    <br>
+    「何をしないか」で考える
+    </h2>
+    <p  class="home-p text-light text-shadow">健康を害する生活習慣をあなたはどれだけ知っていますか？ 毎日の生活習慣があなたを作り上げます。</p>
+    <%= link_to "レシピを見る", posts_path, class: "botton" %>
+  </div>
+</div>
+
+<div class="base-content">
+  <article class="text-center">
+    <div>
+      <h2 class="heading-top">不健康レシピとは</h2>
+      <p class="h5">
+      「目が疲れる」「腰が痛い」「夜眠れない」「食べ過ぎてしまう」「不安になる」「集中できない」など<br>
+      心と体に現れる不穏な症状をレシピと称した生活習慣から原因を探るWEBアプリです。<br>
+      </p>
+    </div>
+    <ul class="list-unstyled mt-5 pt-5">
+      <h2 class="heading-top">こんな人にオススメしています！</h2>
+      <div class="d-flex justify-content-between justify-content-md-center flex-wrap mt-5 shadow">
+        <%= image_tag "introduction1.png", class: "img-fluid" %>
+        <div class="align-self-center px-4">
+          <li class="h4">病院に行くほどでもないけど身体の不調を感じる</li>
+          <p>気になるレシピをチェックして「ここから不調が来ていたのかな？」を見つけよう！</p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between justify-content-md-center flex-wrap-reverse mt-5 shadow">
+        <%= image_tag "introduction2.png", class: "img-fluid order-2" %>
+        <div class="order-1 align-self-center px-4">
+          <li class="h4">自分だけのNG生活習慣を知っている</li>
+          <p>レシピを投稿して同じ悩みを持った人を見つけよう！新しい発見が見つかるかも</p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between justify-content-md-center flex-wrap mt-5 shadow">
+        <%= image_tag "introduction3.png", class: "img-fluid" %>
+        <div class="align-self-center px-4">
+          <li class="h4">大切な人のために健康の理解を深めたい</li>
+          <p>家族や仕事柄で他の人の健康管理が必要な時にサクッと見つけよう！</p>
+        </div>
+      </div>
+    </ul>
+    <div class="mt-5 pt-5">
+      <h1 class="heading-top">さっそく使ってみよう！</h1>
+      <p>周りの不健康レシピをチェックしてみよう</p>
+      <p>気になるレシピは「いいね」してみよう</p>
+      <p>あなたの知っている不健康レシピを投稿してみよう</p>
+    </div>
+    <div class="mt-5 pt-5">
+      <h2 class="heading-top">ピックアップ・レシピ</h2>
+    </div>
+  </article>
+</div>

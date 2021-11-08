@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
-  root "posts#index"
+  # root "posts#index"
+  root "homes#index"
   resources :contacts, only: %i[index create]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -22,16 +23,19 @@ Rails.application.routes.draw do
   resources :statuses
 
   resources :posts do
+    resources :comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
+    resource :like_comments, only: [:create, :destroy]
   end
 
-  get "post/hashtag/:name", to: "posts#hashtag"
-  get "post/hashtag", to: "posts#hashtag"
+  resources :hashtags do
+    get "posts", to: "posts#search"
+  end
 
   resources :categories do
     collection do
-      get "get_category_children", defaults: { format: "json" }
-      get "get_category_grandchildren", defaults: { format: "json" }
+      get "category_children", defaults: { format: "json" }
+      get "category_grandchildren", defaults: { format: "json" }
       get "menu_search"
     end
     member do
