@@ -1,23 +1,27 @@
 <div class="mx-3 my-3">
   <div class="card">
     <div class="d-flex justify-content-between">
-      <div class="">
-        <% if current_user.id == post.user_id %>
-          <%= link_to edit_post_path(post), class: "btn btn-success", data: {"turbolinks" => false } do %>
-            <i class="far fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
+      <% if current_user == nil %>
+        
+      <% else %>
+        <div>
+          <% if current_user.id == post.user_id %>
+            <%= link_to edit_post_path(post), class: "btn btn-success", data: {"turbolinks" => false } do %>
+              <i class="far fa-edit"></i> <span class="d-none d-md-inline"> 編集</span>
+            <% end %>
+            <%= link_to post, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-danger" do %>
+              <i class="far fa-trash-alt"></i> <span class="d-none d-md-inline"> 削除</span>
+            <% end %>          
           <% end %>
-          <%= link_to post, method: :delete, data: { confirm: "削除しますか?" }, class: "btn btn-danger" do %>
-            <i class="far fa-trash-alt"></i> <span class="d-none d-md-inline"> 削除</span>
+        </div>
+        <div id="post-<%= post.id %>">
+          <% if post.liked_by?(current_user) %>
+            <%= render "posts/like", post: post %>
+          <% else %>
+            <%= render "posts/dislike", post: post %>
           <% end %>
-        <% end %>
-      </div>
-      <div id="post-<%= post.id %>">
-        <% if post.liked_by?(current_user) %>
-          <%= render "posts/like", post: post %>
-        <% else %>
-          <%= render "posts/dislike", post: post %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
     <%= link_to post, class: "card-img-top", "data-turbolinks": false, data: {"turbolinks"=>false} do %>
       <%= image_tag post.image.thumb.url, class: "bd-placeholder-img card-img-top" %>

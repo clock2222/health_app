@@ -17,7 +17,7 @@
       <h3 class="text-center">公開中のステータス</h3>
       <% @statuses.each do |status| %>
         <p>
-          性別： <%= status.sex_i18n %>
+          性別：<%= status.sex_i18n %>
         <br>
           年齢：<%= status.age_i18n %>
         <br>
@@ -38,11 +38,13 @@
           年収：<%= status.annual_income_i18n %>
         </P>
       <% end %>
+      <div class="mt-5">
+      </div>
       <% if user_signed_in? && @user == current_user %>
         <% if @statuses.blank? %>
-        <%= link_to "作成", new_status_path(current_user), class: "btn btn-primary btn-block" %>
+        <%= link_to "作成", new_status_path(current_user), class: "btn btn-primary btn-block mt-4" %>
         <% else %>
-        <%= link_to "変更", edit_status_path(current_user), class: "btn btn-primary btn-block" %>
+        <%= link_to "変更", edit_status_path(current_user), class: "btn btn-primary btn-block mt-4" %>
         <% end %>
       <% end %>
     </div>
@@ -55,10 +57,17 @@
     <div class="d-inline-flex flex-wrap">
       <%= render @like_posts %>
     </div>
+    <div class="d-flex justify-content-center">
+      <%= paginate @like_posts %>
+    </div>
+
     <hr>
     <h3 class="mt-5">投稿一覧</h3>
     <div class="d-inline-flex flex-wrap">
       <%= render @posts %>
+    </div>
+    <div class="d-flex justify-content-center">
+      <%= paginate @posts %>
     </div>
     <hr>
   </div>

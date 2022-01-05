@@ -27,7 +27,7 @@ ja:
         content: 内容
       post:
         title: レシピ名
-        content: レシピの説明
+        content: 補足説明
         user: ユーザー
         ing_name: レシピの材料
         hashname: ハッシュタグ
@@ -55,12 +55,12 @@ ja:
         quantity: 分量
         explanation: 説明
       graph:
-        graph_a: 心（感情・疲労）
-        graph_b: 身体（痛み・不調）
-        graph_c: 睡眠（質・時間）
-        graph_d: 集中力（思考・記憶）
-        graph_e: 社会（人間関係・社交性）
-        graph_f: お金（経済・年収）
+        graph_a: 心（感情・疲労等）
+        graph_b: 身体（痛み・不調等）
+        graph_c: 睡眠（質・時間等）
+        graph_d: 集中力（思考・記憶等）
+        graph_e: 社会（人間関係・社交性等）
+        graph_f: お金（経済・年収等）
   time:
     formats:
       default: '%Y年%-m月%-d日(%a) %-H時%-M分%-S秒'

@@ -3,10 +3,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def show
-    @posts = Post.where(user_id: current_user.id)
+    @posts = Post.where(user_id: current_user.id).page(params[:page]).per(9).order(created_at: :desc)
     @statuses = Status.where(user_id: current_user.id)
     likes = Like.where(user_id: current_user.id).pluck(:post_id)
-    @like_posts = Post.find(likes)
+    like_posts = Post.find(likes)
+    @like_posts = Kaminari.paginate_array(like_posts).page(params[:page]).per(6)
   end
 
   def edit

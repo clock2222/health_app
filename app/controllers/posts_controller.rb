@@ -3,8 +3,8 @@ class PostsController < ApplicationController
   before_action :hashtag, only: %i[index]
 
   def index
-    @posts = Post.includes(:user, :likes).order(:created_at)
-    @tag_list = Hashtag.all
+    @posts = Post.includes(:user, :likes).page(params[:page]).per(12).order(created_at: :desc)
+    @tag_list = Hashtag.includes(:posts).order("char_length(hashname) asc").first(100)
   end
 
   def new

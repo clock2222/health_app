@@ -19,15 +19,18 @@
             <%= render "posts/ingredient_fields", f: t %>
           <% end %>
         </div>
+
         <div id="detail-association-insertion-point1"></div>
-          <div class="col-10 mx-auto mt-2">
-            <%= link_to_add_association f, :ingredients,
+        
+        <div class="col-10 mx-auto mt-2" id="detail-association-insertion-point2">
+          <%= link_to_add_association f, :ingredients,
           class: "btn btn-secondary btn-block",
           data: {
           association_insertion_node: '#detail-association-insertion-point1',
           association_insertion_method: 'append'
           } do %>
-            <i class="far fa-plus-square"></i> <span class="d-none d-md-inline"> フォームを追加</span>
+            <i class="far fa-plus-square"></i>
+            <span class="d-none d-md-inline"> レシピを追加</span>
           <% end %>
         </div>
       </div>

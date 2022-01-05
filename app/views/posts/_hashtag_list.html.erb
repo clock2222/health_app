@@ -1,4 +1,4 @@
-<div class= "hashtag-name d-inline-flex flex-wrap ">
+<div class= "hashtag-name d-inline-flex flex-wrap">
     <% @tag_list.each do |list| %>
         <span class="mx-2">
             <%= link_to "#{list.hashname} (#{list.posts.count})", hashtag_posts_path(hashtag_id: list.id), data: {"turbolinks" => false} %>

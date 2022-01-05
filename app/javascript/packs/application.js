@@ -11,6 +11,7 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
+require('./cocoon_validation');
 require('./category_post');
 require('./category');
 require('@rails/activestorage').start();

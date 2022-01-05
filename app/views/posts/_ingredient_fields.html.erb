@@ -1,20 +1,20 @@
-<div class="nested-fields">
-  <div class="row col-12 mx-auto">
-    <div class="my-auto">
-      <%= link_to_remove_association f, class: "btn btn-secondary btn-block" do %>
+<div class="nested-fields mt-3" id="detail-association-insertion-point1">
+  <div class="row">
+    <div class="col-1 my-auto">
+      <%= link_to_remove_association f, class: "btn btn-secondary" do %>
         <i class="fas fa-trash-alt"></i> 
       <% end %>
     </div>
-    <div class="col-10 offset-md-1 row">
-      <div class="col-md-6 mt-3">
+    <div class="offset-md-1 row">
+      <div class="form-group col-md-6">
         <%= f.label :ing_name %>
         <%= f.text_field :ing_name, class: "form-control", placeholder: "例）コーヒー" %>
       </div>
-      <div class="col-md-3 offset-md-1 mt-3">
+      <div class="form-group col-md-3 offset-md-1">
         <%= f.label :quantity %>
         <%= f.text_field :quantity, class: "form-control", placeholder: "例）1日６杯以上" %>
       </div>
-      <div class="col-md-12 mt-3">
+      <div class="form-group col-md-12">
         <%= f.label :explanation %>
         <%= f.text_field :explanation, class: "form-control", placeholder: "例）胃に負担をかけるのがポイント" %>
       </div>

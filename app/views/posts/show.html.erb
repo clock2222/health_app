@@ -62,7 +62,7 @@
     </div>
     <div class="card-footer d-inline-flex justify-content-between align-items-end flex-wrap">
       <div class="">
-        <%= image_tag @post.user.avatar.thumb.url %>
+        <%= image_tag @post.user.avatar.thumb.url, class: "rounded-circle" %>
         <%= @post.user.nickname %>
       </div>
       <div>
@@ -78,13 +78,16 @@
     <h2>コメント一覧</h2>
     <% @comments.each do |comment| %>
       <div>
-        <%= image_tag comment.user.avatar.thumb.url %>
         <div class="balloon1-left">
           <%= simple_format(comment.content) %>
         </div>
       </div>
-        <%= comment.user.nickname.present? ? "#{comment.user.nickname}" : "投稿No.#{comment.user.id}" %>
-        <div id="comment-<%= comment.id %>">
+      <div class="d-inline-flex">
+        <div>
+          <%= image_tag comment.user.avatar.thumb.url, class: "rounded-circle" %>
+          <%= comment.user.nickname.present? ? "#{comment.user.nickname}" : "投稿No.#{comment.user.id}" %>
+        </div>
+        <div id="comment-<%= comment.id %>" class="align-self-center">
           <% if comment.liked_by?(current_user) %>
             <%= render "like_comment", comment: comment %>
           <% else %>
@@ -96,10 +99,11 @@
             <% end %>
           <% end %>
         </div>
+      </div>
     <% end %>
   </div>
   <hr>
-  <div class="base-container" >
+  <div class="base-container mb-5" >
     <h2 class="mt-5">コメントする</h2>
     <%= form_with(model:[@post, @comment], method: :post) do |f| %>
       <%= f.text_area :content %>
