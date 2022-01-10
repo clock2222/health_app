@@ -149,14 +149,19 @@ class Status < ApplicationRecord
 
   enum sleep: {
     default: 0,
-    tree_hours_less: 1,
-    four_hours: 2,
-    five_hours: 3,
-    six_hours: 4,
-    seven_hours: 5,
-    eight_hours: 6,
-    ten_hours: 7,
-    ten_hours_more: 8
+    six_hours_or_less_zero: 1,
+    six_hours_or_less_one: 2,
+    six_hours_or_less_tw0: 3,
+    six_hours_or_less_three: 4,
+    six_seven_hours_and_zero: 5,
+    six_seven_hours_and_one: 6,
+    six_seven_hours_and_two: 7,
+    six_seven_hours_and_three: 8,
+    eight_hours_or_more_zero: 9,
+    eight_hours_or_more_one: 10,
+    eight_hours_or_more_two: 11,
+    eight_hours_or_more_three: 12,
+    other_hours: 13
   }, _prefix: true
 
   enum environment: {

@@ -9,6 +9,9 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag('favicon2.png') %>
+    <% if flash[:notice] %>
+      <%= javascript_pack_tag 'flash_window' %>
+    <% end %>
   </head>
   <body>
     <%= Gon::Base.render_data %>
@@ -16,12 +19,12 @@
         <%= render "layouts/header" %>
       </header>
       <main>
+        <div class="base-container main">
         <%= render "layouts/flash" %>
-        <div class="base-container">
           <%= yield %>
         </div>
       </main>
-      <footer class="background-color fixed-bottom">
+      <footer class="background-color">
         <%= render "layouts/footer" %>
       </footer>
   </body>

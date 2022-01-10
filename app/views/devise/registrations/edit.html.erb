@@ -6,7 +6,7 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field mt-3">
-        <%= f.label :nickname, "ニックネーム" %><br />
+        <%= f.label :nickname %><br />
         <%= f.text_field :nickname, autofocus: true %>
       </div>
 
@@ -43,7 +43,7 @@
       </div>
     <% end %>
 
-  <hr>
+    <hr>
 
     <h3 class="mt-5"><%= t('.cancel_my_account') %></h3>
 

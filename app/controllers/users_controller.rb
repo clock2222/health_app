@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @statuses = Status.where(user_id: current_user.id)
     likes = Like.where(user_id: current_user.id).pluck(:post_id)
     like_posts = Post.find(likes)
-    @like_posts = Kaminari.paginate_array(like_posts).page(params[:page]).per(6)
+    @like_posts = Kaminari.paginate_array(like_posts).page(params[:page]).per(9)
   end
 
   def edit
@@ -15,14 +15,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    redirect_to user_path(@user)
+    redirect_to user_path(@user), notice: "成功しました"
   end
 
   def update
     if current_user.update!(user_params)
-      redirect_to user_path(current_user)
+      redirect_to user_path(current_user), notice: "更新しました"
     else
-      redirect_to edit_user_path(current_user)
+      redirect_to edit_user_path(current_user), notice: "更新できませんでした"
     end
   end
 

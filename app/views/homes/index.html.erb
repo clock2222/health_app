@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<div class="base-content">
+<div class="mt-5">
   <article class="text-center">
     <div>
       <h2 class="heading-top">不健康レシピとは</h2>
@@ -32,26 +32,37 @@
         <%= image_tag "introduction2.png", class: "img-fluid order-2" %>
         <div class="order-1 align-self-center px-4">
           <li class="h4">自分だけのNG生活習慣を知っている</li>
-          <p>レシピを投稿して同じ悩みを持った人を見つけよう！新しい発見が見つかるかも</p>
+          <p>レシピを投稿して同じ悩みを持った人を見つけよう！新しい発見が見つかるかも！？</p>
         </div>
       </div>
       <div class="d-flex justify-content-between justify-content-md-center flex-wrap mt-5 shadow">
         <%= image_tag "introduction3.png", class: "img-fluid" %>
         <div class="align-self-center px-4">
-          <li class="h4">大切な人のために健康の理解を深めたい</li>
-          <p>家族や仕事柄で他の人の健康管理が必要な時にサクッと見つけよう！</p>
+          <li class="h4">大切な人のために健康の理解を深めたい</li>
+          <p>家族や仕事柄で他の人の健康管理が必要な時にサクッと見つかる！</p>
         </div>
       </div>
     </ul>
-    <div class="mt-5 pt-5">
+    <ul class="list-unstyled mt-5 pt-5">
       <h1 class="heading-top">さっそく使ってみよう！</h1>
-      <p>周りの不健康レシピをチェックしてみよう</p>
-      <p>気になるレシピは「いいね」してみよう</p>
-      <p>あなたの知っている不健康レシピを投稿してみよう</p>
-    </div>
+      <div class="d-inline-flex justify-content-md-center row">
+        <div class="col-md-3 mt-5">
+          <%= image_tag "r1162.png", class: "img-fluid shadow" %>
+          <li class="h4 align-self-center mt-3">周りの不健康レシピをチェックしてみよう</li>      </div>
+        <div class="col-md-3 mt-5">
+          <%= image_tag "r0803.png", class: "img-fluid shadow" %>
+          <li class="h4 align-self-center mt-3">気になるレシピは「いいね」してみよう</li>
+        </div>
+        <div class="col-md-3 mt-5">
+          <%= image_tag "r0993.png", class: "img-fluid shadow" %>
+          <li class="h4 align-self-center mt-3">あなたの知っている不健康レシピを投稿してみよう</li>
+        </div>
+      </div>
+    </ul>
+    <%= link_to "レシピを見る", posts_path, class: "btn btn-primary btn-lg w-75" %>
     <div class="mt-5 pt-5">
-      <h2 class="heading-top">ピックアップ・レシピ</h2>
-      <div class="d-inline-flex flex-wrap">
+      <h2 class="heading-top">注目のレシピ</h2>
+      <div class="d-flex flex-wrap">
         <%= render @pickup_posts %>
       </div>
     </div>

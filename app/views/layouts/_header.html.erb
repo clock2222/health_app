@@ -10,7 +10,6 @@
       <div class="navbar-nav", data-turbolinks='false'>
         <% if user_signed_in? %>
           <%= link_to "トップ", posts_path, class: "nav-item nav-link active my-auto" %>
-          <%= render "posts/category" %>
           <%= link_to "レシピを書く", new_post_path, class: "nav-item nav-link active my-auto"%>
           <%= link_to 'マイページ', mypage_path, class: "nav-item nav-link active my-auto" %>
           <%= link_to "アカウント編集", edit_user_registration_path, class: "nav-item nav-link active my-auto" %>

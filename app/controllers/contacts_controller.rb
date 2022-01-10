@@ -8,9 +8,9 @@ class ContactsController < ApplicationController
     if @contact.save
       ContactMailer.user_email(@contact).deliver_now
       ContactMailer.admin_email(@contact).deliver_now
-      redirect_to root_path
+      redirect_to root_path, notice: "送信しました"
     else
-      render :index
+      render :index, notice: "送信できませんでした"
     end
   end
 

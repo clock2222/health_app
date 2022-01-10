@@ -1,14 +1,13 @@
 <div class="base-content">
-  <h1>プロフィール編集</h1>
-
+  <h2 class="text-center">ニックネームの編集</h2>
+<div class="d-flex justify-content-center mt-5">
   <%= form_with model: @user, local: true do |f| %>
     <div class="form-group">
       <%= f.label :nickname %>
       <%= f.text_field :nickname, class: "form-control", rows: 1, required: true, maxlength: 30 %>
     </div>
-    <div>
-      <%= f.submit "保存", class: "btn btn-primary btn-block" %>
-    </div>
+    <%= f.submit "変更", class: "btn btn-primary btn-block mt-5" %>
   <% end %>
+</div>
 
 </div>

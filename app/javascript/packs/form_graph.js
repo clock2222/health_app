@@ -17,8 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const radarChartOption = {
-    // responsive: true,
-    // maintainAspectRatio: false,
     scales: {
       r: {
         min: 0,

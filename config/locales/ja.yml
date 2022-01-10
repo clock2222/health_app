@@ -19,7 +19,7 @@ ja:
       ingredient: レシピの材料
     attributes:
       user:
-        name: 名前
+        nickname: ニックネーム
         age: 年齢
       contact:
         name: 氏名
@@ -27,7 +27,7 @@ ja:
         content: 内容
       post:
         title: レシピ名
-        content: 補足説明
+        content: レシピ情報
         user: ユーザー
         ing_name: レシピの材料
         hashname: ハッシュタグ

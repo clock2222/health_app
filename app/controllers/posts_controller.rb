@@ -4,7 +4,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:user, :likes).page(params[:page]).per(12).order(created_at: :desc)
-    @tag_list = Hashtag.includes(:posts).order("char_length(hashname) asc").first(100)
+    @tag_list = Hashtag.includes(:posts).order("char_length(hashname) asc").first(300)
+    @pickup_tags = Hashtag.includes(:posts).sort { |a, b| b.hashtag_maps.size <=> a.hashtag_maps.size }
   end
 
   def new
@@ -33,10 +34,6 @@ class PostsController < ApplicationController
     @ingredients = @post.ingredients
     gon.chart_label = ["心", "身体", "睡眠", "集中力", "社会", "お金"]
     gon.chart_data = @post.graphs.pluck(:graph_a, :graph_b, :graph_c, :graph_d, :graph_e, :graph_f).flatten
-    @category_id = @post.category_id
-    @category_parent = Category.find(@category_id).parent.parent
-    @category_child = Category.find(@category_id).parent
-    @category_grandchild = Category.find(@category_id)
     @statuses = Status.where(user_id: @post.user.id)
   end
 
@@ -84,7 +81,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :image, :content, :category_id, :tag_name, :user_id,
+    params.require(:post).permit(:title, :image, :content, :tag_name, :user_id,
                                  ingredients_attributes: [:id, :ing_name, :quantity, :explanation, :_destroy],
                                  graphs_attributes: [:id, :graph_a, :graph_b, :graph_c, :graph_d, :graph_e, :graph_f, :_destroy])
   end

@@ -2,12 +2,12 @@ ja:
   enums:
     status:
       sex:
-        default: --------
+        default: ----非公開----
         male: 男性
         female: 女性
         other: その他
       age:
-        default: --------
+        default: ----非公開----
         up_to_nine: 10歳未満
         up_to_fourteen: 10~14歳
         up_to_nineteen: 15~19歳
@@ -32,7 +32,7 @@ ja:
         up_to_one_hundred_fourteen: 110~114歳
         up_to_one_hundred_nineteen: 115~119歳
       height:
-        default: --------
+        default: ----非公開----
         up_to_ninety_nine: 100cm未満
         up_to_one_hundred_four: 100~104cm
         up_to_one_hundred_nine: 105~109cm
@@ -61,7 +61,7 @@ ja:
         up_to_two_hundred_twenty_four: 220~224cm
         up_to_two_hundred_twenty_nine: 225~229cm
       weight:
-        default: --------
+        default: ----非公開----
         up_to_ten: 10kg未満
         up_to_nineteen: 10~19kg
         up_to_twenty_nine: 20~29kg
@@ -89,7 +89,7 @@ ja:
         up_to_one_hundred_forty_four: 140~144kg
         up_to_one_hundred_forty_nine: 145~149kg
       body_type:
-        default: --------
+        default: ----非公開----
         under_weight: 痩せ型(BMI値18.5未満)
         normal_range: 普通体型(BMI値25.0未満)
         pre_muscle: 筋肉度１(BMI値30.0未満)
@@ -97,59 +97,64 @@ ja:
         muscle_class_two: 筋肉度３(BMI40.0未満)
         muscle_class_three: 筋肉度４(BMI値40.0以上)
         pre_obese: 肥満度１(BMI値30.0未満)
-        obese_class_one: 肥満度２筋肉度２(BMI35.0未満)
+        obese_class_one: 肥満度２(BMI35.0未満)
         obese_class_two: 肥満度３(BMI40.0未満)
-        obese_class_three: 肥満度４筋肉度４(BMI値40.0以上)
+        obese_class_three: 肥満度４(BMI値40.0以上)
       meal:
-        default: --------
-        one_on_less_than: １日１食（１回：１人前未満）
-        one_on_one: １日１食（１回：１人前）
-        one_on_two: １日１食（１回：２人前）
-        one_on_three: １日１食（１回：３人前以上）
-        two_on_less_than: １日２食（１回：１人前未満）
-        two_on_one: １日２食（１回：１人前）
-        two_on_two: １日２食（１回：２人前）
-        two_on_three: １日２食（１回：３人前以上）
-        three_on_less_than: １日３食（１回：１人前未満）
-        three_on_one: １日３食（１回：１人前）
-        three_on_two: １日３食（１回：２人前）
-        three_on_three: １日３食（１回：３人前以上）
-        four_on_less_than: １日４食（１回：１人前未満）
-        four_on_one: １日４食（１回：１人前）
-        four_on_two: １日４食（１回：２人前）
-        four_on_three: １日４食（１回：３人前以上）
-        five_on_less_than: １日５食（１回：１人前未満）
-        five_on_one: １日５食（１回：１人前）
-        five_on_two: １日５食（１回：２人前）
-        five_on_three: １日５食（１回：３人前以上）
-        six_on_less_than: １日６食（１回：１人前未満）
-        six_on_one: １日６食（１回：１人前）
-        six_on_two: １日６食（１回：２人前）
-        six_on_three: １日６食（１回：３人前以上）
+        default: ----非公開----
+        one_on_less_than: １日１食（１食：１人前未満）
+        one_on_one: １日１食（１食：１人前）
+        one_on_two: １日１食（１食：２人前）
+        one_on_three: １日１食（１食：３人前以上）
+        two_on_less_than: １日２食（１食：１人前未満）
+        two_on_one: １日２食（１食：１人前）
+        two_on_two: １日２食（１食：２人前）
+        two_on_three: １日２食（１食：３人前以上）
+        three_on_less_than: １日３食（１食：１人前未満）
+        three_on_one: １日３食（１食：１人前）
+        three_on_two: １日３食（１食：２人前）
+        three_on_three: １日３食（１食：３人前以上）
+        four_on_less_than: １日４食（１食：１人前未満）
+        four_on_one: １日４食（１食：１人前）
+        four_on_two: １日４食（１食：２人前）
+        four_on_three: １日４食（１食：３人前以上）
+        five_on_less_than: １日５食（１食：１人前未満）
+        five_on_one: １日５食（１食：１人前）
+        five_on_two: １日５食（１食：２人前）
+        five_on_three: １日５食（１食：３人前以上）
+        six_on_less_than: １日６食（１食：１人前未満）
+        six_on_one: １日６食（１食：１人前）
+        six_on_two: １日６食（１食：２人前）
+        six_on_three: １日６食（１食：３人前以上）
       movement:
-        default: --------
+        default: ----非公開----
         low_activities: 生活の大部分が座位、又は静的な活動が中心
         middle_activities: 座位中心の仕事かつ移動・立位・家事等の軽運動がある
         high_activities: 移動や立位中心、または余暇に活発な運動習慣がある
       sleep:
-        default: --------
-        tree_hours_less: 1日 3時間以下
-        four_hours: 1日 3~4時間
-        five_hours: 1日 4~5時間
-        six_hours: 1日 5~6時間
-        seven_hours: 1日 6~7時間
-        eight_hours: 1日 7~8時間
-        ten_hours: 1日 9~10時間
-        ten_hours_more: 1日 10時間以上
+        default: ----非公開----
+        six_hours_or_less_zero: 1日 6時間以下(朝まで熟睡)
+        six_hours_or_less_one: 1日 6時間以下(朝までに1回目を覚ます)
+        six_hours_or_less_tw0: 1日 6時間以下(朝まで2回目を覚ます)
+        six_hours_or_less_three: 1日 6時間以下(朝まで3回以上目を覚ます)
+        six_seven_hours_and_zero: 1日 6~7時間(朝まで熟睡)
+        six_seven_hours_and_one: 1日 6~7時間(朝まで1回目を覚ます)
+        six_seven_hours_and_two: 1日 6~7時間(朝まで2回目を覚ます)
+        six_seven_hours_and_three: 1日 6~7時間(朝まで3回以上目を覚ます)
+        eight_hours_or_more_zero: 1日 8時間以上(朝まで熟睡)
+        eight_hours_or_more_one: 1日 8時間以上(朝まで1回目を覚ます)
+        eight_hours_or_more_two: 1日 8時間以上(朝まで2回目を覚ます)
+        eight_hours_or_more_three: 1日 8時間以上(朝まで3回以上目を覚ます)
+        other_hours: その他（アルコール、睡眠薬等を飲んで就寝）
       environment:
-        default: --------
-        low: 低い（ローテブルやソファーを中心とした環境）
-        high: 高い（イスとテーブルのセットを中心とした環境）
+        default: ----非公開----
+        low: 低い（座敷やローテブル、ソファーを中心とした環境）
+        high: 高い（身長に合ったイスとテーブルを中心とした環境）
         low_preferred: どちらもあるが低い方で過ごす事が多い
         high_preferred: どちらもあるが高い方で過ごす事が多い
         equivalent: どちらもバランスよく使い分けて過ごしている
       annual_income:
-        default: --------
+        default: ----非公開----
         ninety_nine: 年収 0~99万円
         million: 年収 100万円~
         twenty_million: 年収 200万円~

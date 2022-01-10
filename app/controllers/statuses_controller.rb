@@ -6,8 +6,12 @@ class StatusesController < ApplicationController
   end
 
   def create
-    current_user.create_status!(status_params)
-    redirect_to mypage_path(current_user)
+    if current_user.create_status!(status_params)
+      redirect_to mypage_path(current_user), notice: "作成しました"
+    else
+      flash.now[:alert] = "作成に失敗しました"
+      render :new
+    end
   end
 
   def edit
@@ -15,8 +19,12 @@ class StatusesController < ApplicationController
   end
 
   def update
-    @status.update!(status_params)
-    redirect_to mypage_path(current_user)
+    if @status.update!(status_params)
+      redirect_to mypage_path(current_user), notice: "更新しました"
+    else
+      flash.now[:alert] = "更新に失敗しました"
+      render :edit
+    end
   end
 
   private

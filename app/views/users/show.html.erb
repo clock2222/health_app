@@ -3,50 +3,75 @@
     <h1 class="text-center">マイページ</h1>
     <p class="text-center">(<%= @user.nickname %>)<%= link_to "変更", edit_user_path(current_user), class: "badge badge-primary" %></p>
   <% else %>
-    <h1 class="text-center">ユーザーページ(<%= @user.nickname %>)</h1>
+    <h1 class="text-center">ユーザーページ</h1>
+    <p class="text-center">(<%= @user.nickname %>)</p>
   <% end %>
 
 
-  <div class="row mt-5">
-    <div class="col-md-6">
+  <div class="row">
+    <div class="col-md-6 mt-5">
       <h3 class="text-center">アバター画像</h3>
-      <div class="d-flex justify-content-center"><%= image_tag @user.avatar.mypage.url, class: "rounded-circle mt-1" %></div>
-      <%= render "form" %>
-    </div>
-    <div class="col-md-6">
-      <h3 class="text-center">公開中のステータス</h3>
-      <% @statuses.each do |status| %>
-        <p>
-          性別：<%= status.sex_i18n %>
-        <br>
-          年齢：<%= status.age_i18n %>
-        <br>
-          身長：<%= status.height_i18n %>
-        <br>
-          体重：<%= status.weight_i18n %>
-        <br>
-          体型：<%= status.body_type_i18n %>
-        <br>
-          食事：<%= status.meal_i18n %>
-        <br>
-          運動：<%= status.movement_i18n %>
-        <br>
-          睡眠：<%= status.sleep_i18n %>
-        <br>
-          環境：<%= status.environment_i18n %>
-        <br>
-          年収：<%= status.annual_income_i18n %>
-        </P>
-      <% end %>
-      <div class="mt-5">
-      </div>
+      <div class="d-flex justify-content-center"><%= image_tag @user.avatar.url, class: "rounded-circle mt-1" %></div>
       <% if user_signed_in? && @user == current_user %>
-        <% if @statuses.blank? %>
-        <%= link_to "作成", new_status_path(current_user), class: "btn btn-primary btn-block mt-4" %>
-        <% else %>
-        <%= link_to "変更", edit_status_path(current_user), class: "btn btn-primary btn-block mt-4" %>
-        <% end %>
+        <%= render "form" %>
       <% end %>
+    </div>
+    <div class="col-md-6 mt-5">
+      <h3 class="text-center col-md-12">公開中のステータス</h3>
+      <% @statuses.each do |status| %>
+        <table>
+          <tr>
+            <td width=40>性別</td>
+            <td><%= status.sex_i18n %></td>
+          </tr>
+          <tr>
+            <td>年齢</td>
+            <td><%= status.age_i18n %></td>
+          </tr>
+          <tr>
+            <td>身長</td>
+            <td><%= status.height_i18n %></td>
+          </tr>
+          <tr>
+            <td>体重</td>
+            <td><%= status.weight_i18n %></td>
+          </tr>
+          <tr>
+            <td>体型</td>
+            <td><%= status.body_type_i18n %></td>
+          </tr>
+          <tr>
+            <td>食事</td>
+            <td><%= status.meal_i18n %></td>
+          </tr>
+          <tr>
+            <td>運動</td>
+            <td><%= status.movement_i18n %></td>
+          </tr>
+          <tr>
+            <td>睡眠</td>
+            <td><%= status.sleep_i18n %></td>
+          </tr>
+          <tr>
+            <td>環境</td>
+            <td><%= status.environment_i18n %></td>
+          </tr>
+          <tr>
+            <td>年収</td>
+            <td><%= status.annual_income_i18n %></td>
+          </tr>
+        </table>
+      <% end %>
+      <%# btnの高さが揃わない %>
+      <div class="d-flex justify-content-center mt-4 pt-1">
+        <% if user_signed_in? && @user == current_user %>
+          <% if @statuses.blank? %>
+            <%= link_to "作成", new_status_path(current_user), class: "btn btn-primary btn-block" %>
+          <% else %>
+            <%= link_to "変更", edit_status_path(current_user), class: "btn btn-primary btn-block" %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 
@@ -54,7 +79,7 @@
 
   <div class="mt-5">
     <h3 class="mt-5">いいね一覧</h3>
-    <div class="d-inline-flex flex-wrap">
+    <div class="row">
       <%= render @like_posts %>
     </div>
     <div class="d-flex justify-content-center">
@@ -63,7 +88,7 @@
 
     <hr>
     <h3 class="mt-5">投稿一覧</h3>
-    <div class="d-inline-flex flex-wrap">
+    <div class="row">
       <%= render @posts %>
     </div>
     <div class="d-flex justify-content-center">

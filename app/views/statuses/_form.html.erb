@@ -1,45 +1,53 @@
 <%= form_with model: @status, local: true do |f| %>
-  <div>
+  <div class="form-group mt-3">
     <%= f.label :sex %>
-    <%= f.select :sex, Status.sexes_i18n.invert %>
-    <small class="text-muted">あなたの性別</small>
-
+    <%= f.select :sex, Status.sexes_i18n.invert, {}, { class: "custom-select custom-select-sm" } %>
+    <small class="text-muted">あなたの性別を公開します。</small>
   </div>
-  <div>
+  <div class="form-group mb-3">
     <%= f.label :age %>
-    <%= f.select :age, Status.ages_i18n.invert  %>
+    <%= f.select :age, Status.ages_i18n.invert, {}, { class: "custom-select custom-select-sm" }  %>
+    <small class="text-muted">あなたの年齢を公開します。</small>
   </div>
-  <div>
+  <div class="form-group mb-3">
     <%= f.label :height %>
-    <%= f.select :height, Status.heights_i18n.invert  %>
+    <%= f.select :height, Status.heights_i18n.invert, {}, { class: "custom-select custom-select-sm" }  %>
+   <small class="text-muted">あなたの身長を公開します。</small>
   </div>
-  <div>
+  <div class="form-group mb-3">
     <%= f.label :weight %>
-    <%= f.select :weight, Status.weights_i18n.invert  %>
+    <%= f.select :weight, Status.weights_i18n.invert, {}, { class: "custom-select custom-select-sm" }  %>
+    <small class="text-muted">あなたの体重を公開します。</small>
   </div>
-  <div>
+  <div class="form-group mb-3">
     <%= f.label :body_type %>
-    <%= f.select :body_type, Status.body_types_i18n.invert  %>
+    <%= f.select :body_type, Status.body_types_i18n.invert, {}, { class: "custom-select custom-select-sm" }  %>
+   <small class="text-muted">あなたの体型を公開します。</small>
   </div>
-  <div>
+  <div class="form-group mb-3">
     <%= f.label :meal %>
-    <%= f.select :meal, Status.meals_i18n.invert  %>
+    <%= f.select :meal, Status.meals_i18n.invert, {}, { class: "custom-select custom-select-sm" }  %>
+    <small class="text-muted">あなたの食事量を公開します。</small>
   </div>
-  <div>
+  <div class="form-group mb-3">
     <%= f.label :movement %>
-    <%= f.select :movement, Status.movements_i18n.invert  %>
+    <%= f.select :movement, Status.movements_i18n.invert, {}, { class: "custom-select custom-select-sm" }  %>
+    <small class="text-muted">あなたの活動量を公開します。</small>
   </div>
-  <div>
+  <div class="form-group mb-3">
     <%= f.label :sleep %>
-    <%= f.select :sleep, Status.sleeps_i18n.invert  %>
+    <%= f.select :sleep, Status.sleeps_i18n.invert, {}, { class: "custom-select custom-select-sm" }  %>
+   <small class="text-muted">あなたの睡眠時間を公開します。 ※仮眠、昼寝、就寝に入った時間は含めず、入眠から覚醒までの総合時間から選択してください。</small>
   </div>
-  <div>
+  <div class="form-group mb-3">
     <%= f.label :environment %>
-    <%= f.select :environment, Status.environments_i18n.invert  %>
+    <%= f.select :environment, Status.environments_i18n.invert, {}, { class: "custom-select custom-select-sm" } %>
+   <small class="text-muted">あなたの生活環境を公開します。</small>
   </div>
-  <div>
+  <div class="form-groupmb-3">
     <%= f.label :annual_income %>
-    <%= f.select :annual_income, Status.annual_incomes_i18n.invert  %>
+    <%= f.select :annual_income, Status.annual_incomes_i18n.invert, {}, { class: "custom-select custom-select-sm" }  %>
+    <small class="text-muted">あなたの経済状況を公開します。</small>
   </div>
-    <%= f.submit class: "btn btn-primary btn-block" %>
+  <%= f.submit class: "btn btn-primary btn-block mt-5" %>
 <% end %>

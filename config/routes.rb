@@ -31,15 +31,4 @@ Rails.application.routes.draw do
   resources :hashtags do
     get "posts", to: "posts#search"
   end
-
-  resources :categories do
-    collection do
-      get "category_children", defaults: { format: "json" }
-      get "category_grandchildren", defaults: { format: "json" }
-      get "menu_search"
-    end
-    member do
-      get "item_search"
-    end
-  end
 end

@@ -38,25 +38,12 @@
 
   <div class="form-group col-12">
     <%= f.label :content, class: "h3 mt-5" %>
-    <%= f.text_area :content, class: "form-control", rows: 5, required: true, maxlength: 500 %>
-  </div>
-
-  <div class="append__category mt-5 col-12">
-    <div class="category">
-      <div class="form__label">
-        <div class="weight-bold-text lavel__name ">
-          <%= f.label :category, class: "h3" %>
-        </div>
-        <div class="lavel__Required">
-          <%= f.collection_select :category_id, @set_parents, :id, :name,{ include_blank: "選択してください"},class:"select_field form-control col-md-3", id:"post_category_id" %>
-        </div>
-      </div>
-    </div>
+    <%= f.text_area :content, class: "form-control", rows: 5, required: true, maxlength: 500, placeholder: "発見経緯、補足情報、詳細説明など書いてみてね" %>
   </div>
 
   <div class="form-group col-12">
     <%= f.label :hashname, class: "h3 mt-5" %>
-    <%= f.text_area :hashname, value: @tag_list,class: "form-control", rows: 1, required: true, maxlength: 100, placeholder: "例）コーヒー 頭痛 吐き気" %>
+    <%= f.text_area :hashname, value: @tag_list,class: "form-control", rows: 1, required: true, maxlength: 36, placeholder: "例）コーヒー 頭痛 吐き気" %>
   </div>
   
   <div class="row my-5">
