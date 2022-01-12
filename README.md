@@ -90,3 +90,13 @@ terminal iterm2
 # 活動記録
 
 https://qiita.com/List202
+
+# 今後の予定
+
+変数名(特にグラフの各項目)
+初期データの作成
+テストコードの追加
+Rubocop の違反の修正
+全体的なリファクタリング
+root の修正
+デフォルト画像の修正（posts/show）
