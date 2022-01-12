@@ -16,6 +16,7 @@ https://intense-oasis-72713.herokuapp.com/
 ● 画像による説明
 
 ●ER 図
+![image](https://p8.f1.n0.cdn.getcloudapp.com/items/6quE2e1j/feda3337-f0cf-482d-b435-bc3c1d119efa.png?v=133615fa2d8281a6dfefc7ec20d63844)
 
 ●AWS 構成図
 
